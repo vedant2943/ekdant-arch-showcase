@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -36,20 +36,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "+91 (123) 456-7890",
-      link: "tel:+911234567890",
+      details: "7768875444 / 7738222255 / 7709256757 / 9270245553",
+      link: "tel:+917768875444",
     },
     {
       icon: Mail,
       title: "Email",
-      details: "info@ekdantassociates.com",
-      link: "mailto:info@ekdantassociates.com",
+      details: "ekdant_associates@hotmail.com",
+      link: "mailto:ekdant_associates@hotmail.com",
     },
     {
       icon: MapPin,
       title: "Address",
-      details: "123 Business District, City, State, PIN",
-      link: "#",
+      details: "Shop no.3 Gangotri apartment Sanyukta Nagar Achole Cross Road Nallasopara East 401209",
+      link: "https://maps.app.goo.gl/oG44HN8V2dcoV1HXA",
+    },
+    {
+      icon: Instagram,
+      title: "Instagram",
+      details: "@ekdant_associates",
+      link: "https://www.instagram.com/ekdant_associates/",
     },
     {
       icon: Clock,
@@ -76,7 +82,7 @@ const Contact = () => {
       {/* Contact Info Cards */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
             {contactInfo.map((info, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
@@ -87,7 +93,9 @@ const Contact = () => {
                   ) : (
                     <a
                       href={info.link}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      target={info.link.startsWith("http") ? "_blank" : undefined}
+                      rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors break-words"
                     >
                       {info.details}
                     </a>
@@ -185,7 +193,7 @@ const Contact = () => {
               <h2 className="text-3xl font-display font-bold mb-6">Find Us</h2>
               <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.4827878873855!2d72.8776559!3d19.0759837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c63aceef0c69%3A0x2aa80cf2287dfa3b!2sBandstand%20Promenade!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.0364798765!2d72.8245!3d19.4275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7aa1f6e5e8c55%3A0x1e9f5f5f5f5f5f5f!2sGangotri%20Apartment%2C%20Sanyukta%20Nagar%2C%20Achole%20Cross%20Rd%2C%20Nallasopara%20East%2C%20Nallasopara%2C%20Maharashtra%20401209!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

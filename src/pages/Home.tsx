@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Users, Award, TrendingUp } from "lucide-react";
+import { Building2, Users, Award, TrendingUp, CheckCircle2, FileCheck, Scale, HardHat, LineChart, Shield, Building } from "lucide-react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import heroImage from "@/assets/hero-building.jpg";
@@ -19,7 +19,88 @@ const Home = () => {
 
   const { ref: statsRef, hasBeenInView: statsInView } = useIntersectionObserver();
   const { ref: aboutRef, hasBeenInView: aboutInView } = useIntersectionObserver();
+  const { ref: servicesRef, hasBeenInView: servicesInView } = useIntersectionObserver();
   const { ref: projectsRef, hasBeenInView: projectsInView } = useIntersectionObserver();
+
+  const services = [
+    {
+      icon: Building2,
+      title: "Redevelopment PMC",
+      description: "Complete end-to-end PMC services for housing society redevelopment projects — from feasibility analysis to project handover.",
+      points: [
+        "Selecting the right developer through transparent tendering process",
+        "Conducting FSI, TDR, and cost-benefit calculations as per UDCPR",
+        "Drafting and reviewing legal agreements (MoU, DA, POA, etc.)",
+        "Monitoring construction quality, timelines, and financial compliance"
+      ]
+    },
+    {
+      icon: FileCheck,
+      title: "Legal & Compliance Advisory",
+      description: "Expert guidance on all legal aspects of real estate projects ensuring complete regulatory compliance and documentation.",
+      points: [
+        "Property title verification and due diligence services",
+        "RERA registration and compliance management",
+        "Development agreement preparation and review",
+        "Regulatory approvals and NOC procurement"
+      ]
+    },
+    {
+      icon: Scale,
+      title: "Valuation & Financial Consulting",
+      description: "Professional valuation services and financial planning to maximize returns and ensure project viability.",
+      points: [
+        "Market analysis and property valuation",
+        "Financial feasibility studies and ROI analysis",
+        "Cost estimation and budget planning",
+        "Banking and finance facilitation"
+      ]
+    },
+    {
+      icon: HardHat,
+      title: "Construction Management",
+      description: "End-to-end construction management ensuring quality execution and timely project delivery within budget.",
+      points: [
+        "Site supervision and quality control",
+        "Progress monitoring and reporting",
+        "Vendor and contractor management",
+        "Materials procurement and cost optimization"
+      ]
+    },
+    {
+      icon: LineChart,
+      title: "Project Planning & Design",
+      description: "Comprehensive planning and design services to optimize space utilization and ensure aesthetic excellence.",
+      points: [
+        "Architectural and structural design coordination",
+        "Space planning and layout optimization",
+        "3D visualization and virtual walkthroughs",
+        "Sustainable and eco-friendly design solutions"
+      ]
+    },
+    {
+      icon: Shield,
+      title: "Risk Management",
+      description: "Proactive identification and mitigation of project risks to safeguard stakeholder interests throughout development.",
+      points: [
+        "Risk assessment and contingency planning",
+        "Insurance and warranty management",
+        "Dispute resolution and arbitration support",
+        "Quality assurance and defect liability management"
+      ]
+    },
+    {
+      icon: CheckCircle2,
+      title: "Handover & Documentation",
+      description: "Smooth project handover with complete documentation ensuring hassle-free possession and occupancy for members.",
+      points: [
+        "Occupancy certificate (OC) procurement",
+        "Final account settlement and documentation",
+        "Defect liability period management",
+        "Post-handover support and warranty coordination"
+      ]
+    }
+  ];
 
   const recentProjects = [
     {
@@ -117,6 +198,48 @@ const Home = () => {
             <Button asChild variant="default" size="lg">
               <Link to="/about">Learn More About Us</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Offered */}
+      <section ref={servicesRef} className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <div className={`text-center mb-12 transition-all duration-1000 ${
+            servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
+            <h2 className="text-4xl font-display font-bold mb-4">
+              Services Offered
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive real estate solutions tailored to your needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={index}
+                className={`hover:shadow-xl transition-all duration-700 ${
+                  servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-6">
+                  <service.icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">{service.description}</p>
+                  <ul className="space-y-2">
+                    {service.points.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 size={16} className="text-primary mt-0.5 flex-shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

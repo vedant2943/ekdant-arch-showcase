@@ -37,7 +37,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-3">
             <img src={logo} alt="Ekdant Associates Logo" className="h-12 w-12 object-contain" />
             <div className="text-xl font-display font-bold text-primary">
-              Ekdant <span className="text-foreground">Associates</span>
+              Ekdant <span className="text-primary">Associates</span>
             </div>
           </Link>
 

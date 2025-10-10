@@ -46,18 +46,18 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
-                <span className="text-muted-foreground">123 Business District, City, State</span>
+                <span className="text-muted-foreground">Shop no.3 Gangotri apartment Sanyukta Nagar Achole Cross Road Nallasopara East 401209</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-primary flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                  +91 (123) 456-7890
+                <a href="tel:+917768875444" className="text-muted-foreground hover:text-primary transition-colors">
+                  7768875444 / 7738222255
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-primary flex-shrink-0" />
-                <a href="mailto:info@ekdantassociates.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@ekdantassociates.com
+                <a href="mailto:ekdant_associates@hotmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  ekdant_associates@hotmail.com
                 </a>
               </li>
             </ul>
@@ -75,7 +75,7 @@ const Footer = () => {
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/ekdant_associates/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
