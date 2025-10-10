@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Ekdant Associates Gold & White Theme */
+    /* Ekdant Associates - Elephant & Ring Orange Theme */
     --background: 0 0% 100%;
     --foreground: 0 0% 15%;
 
@@ -18,13 +18,13 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 15%;
 
-    /* Rich Gold Primary */
-    --primary: 43 74% 49%;
+    /* Elephant Brown-Orange Primary */
+    --primary: 18 89% 33%;
     --primary-foreground: 0 0% 100%;
     
-    /* Gold Gradient */
-    --gold-light: 45 100% 70%;
-    --gold-dark: 38 92% 40%;
+    /* Orange Gradient */
+    --orange-light: 29 100% 50%;
+    --orange-dark: 18 89% 33%;
 
     /* Gray Secondary */
     --secondary: 0 0% 96%;
@@ -33,7 +33,7 @@ All colors MUST be HSL.
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 43 74% 49%;
+    --accent: 29 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -41,13 +41,13 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 43 74% 49%;
+    --ring: 29 100% 50%;
 
     --radius: 0.5rem;
 
     /* Custom Design Tokens */
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold-dark)));
-    --shadow-elegant: 0 10px 40px -10px hsl(43 74% 49% / 0.25);
+    --gradient-orange: linear-gradient(135deg, hsl(var(--orange-light)), hsl(var(--orange-dark)));
+    --shadow-elegant: 0 10px 40px -10px hsl(18 89% 33% / 0.25);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -61,7 +61,7 @@ All colors MUST be HSL.
     --popover: 0 0% 15%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 43 74% 49%;
+    --primary: 18 89% 33%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 20%;
@@ -70,7 +70,7 @@ All colors MUST be HSL.
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 43 74% 49%;
+    --accent: 29 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
@@ -78,7 +78,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 25%;
     --input: 0 0% 25%;
-    --ring: 43 74% 49%;
+    --ring: 29 100% 50%;
   }
 }
 
