@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Users, Award, TrendingUp } from "lucide-react";
+import { useCountAnimation } from "@/hooks/useCountAnimation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import heroImage from "@/assets/hero-building.jpg";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
@@ -9,11 +11,15 @@ import project3 from "@/assets/project-3.jpg";
 
 const Home = () => {
   const stats = [
-    { icon: Building2, label: "Projects Completed", value: "150+" },
-    { icon: Users, label: "Happy Clients", value: "500+" },
-    { icon: Award, label: "Awards Won", value: "25+" },
-    { icon: TrendingUp, label: "Years Experience", value: "15+" },
+    { icon: Building2, label: "Projects Completed", value: 150, suffix: "+" },
+    { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
+    { icon: Award, label: "Awards Won", value: 25, suffix: "+" },
+    { icon: TrendingUp, label: "Years Experience", value: 15, suffix: "+" },
   ];
+
+  const { ref: statsRef, hasBeenInView: statsInView } = useIntersectionObserver();
+  const { ref: aboutRef, hasBeenInView: aboutInView } = useIntersectionObserver();
+  const { ref: projectsRef, hasBeenInView: projectsInView } = useIntersectionObserver();
 
   const recentProjects = [
     {
@@ -69,24 +75,37 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-secondary">
+      <section ref={statsRef} className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in">
-                <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const count = useCountAnimation(stat.value, 2000, statsInView);
+              return (
+                <div 
+                  key={index} 
+                  className={`text-center transition-all duration-700 ${
+                    statsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <stat.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-foreground mb-2">
+                    {statsInView ? count : 0}{stat.suffix}
+                  </div>
+                  <div className="text-muted-foreground">{stat.label}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* About Preview */}
-      <section className="py-20">
+      <section ref={aboutRef} className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
+            aboutInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
             <h2 className="text-4xl font-display font-bold mb-6">
               Who We Are
             </h2>
@@ -103,9 +122,11 @@ const Home = () => {
       </section>
 
       {/* Recent Projects */}
-      <section className="py-20 bg-secondary">
+      <section ref={projectsRef} className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 transition-all duration-1000 ${
+            projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+          }`}>
             <h2 className="text-4xl font-display font-bold mb-4">
               Recent Projects
             </h2>
@@ -115,8 +136,14 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {recentProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            {recentProjects.map((project, index) => (
+              <Card 
+                key={project.id} 
+                className={`overflow-hidden hover:shadow-xl transition-all duration-700 ${
+                  projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.image}

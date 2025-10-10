@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,8 +34,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-display font-bold text-primary">
+          <Link to="/" className="flex items-center space-x-3">
+            <img src={logo} alt="Ekdant Associates Logo" className="h-12 w-12 object-contain" />
+            <div className="text-xl font-display font-bold text-primary">
               Ekdant <span className="text-foreground">Associates</span>
             </div>
           </Link>
@@ -53,9 +54,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="default">
-              <Link to="/contact">Get in Touch</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -82,11 +80,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild variant="default" className="w-full mt-4">
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                Get in Touch
-              </Link>
-            </Button>
           </div>
         )}
       </div>
