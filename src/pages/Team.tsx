@@ -8,56 +8,62 @@ const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Rajesh Kumar",
-      position: "Founder & CEO",
+      name: "Shekhar Rajaram Dhuri",
+      position: "Society Affairs and Legal Aid Consultant",
+      qualification: "DDEO, GDCA",
+      bio: "Consultant – Co-operative Housing Societies\nAdvisor – Redevelopment of Buildings of Housing Society",
       image: team1,
-      bio: "With over 20 years of experience in real estate and construction, Rajesh leads Ekdant Associates with vision and strategic expertise. His commitment to excellence has been the driving force behind our success.",
-      email: "rajesh@ekdantassociates.com",
+      email: "shekhar@ekdantassociates.com",
       linkedin: "#",
     },
     {
       id: 2,
-      name: "Priya Sharma",
-      position: "Chief Architect",
+      name: "Ajit Suresh Palav",
+      position: "Construction & Revenue Consultant",
+      qualification: "B.E. (Civil)",
+      bio: "Consultant – Redevelopment/Repairs/Revenue\nSite Execution / Costing",
       image: team2,
-      bio: "An award-winning architect with a passion for sustainable design, Priya brings innovative solutions to every project. Her creative vision has shaped some of our most iconic developments.",
-      email: "priya@ekdantassociates.com",
+      email: "ajit@ekdantassociates.com",
       linkedin: "#",
     },
     {
       id: 3,
-      name: "Arun Patel",
-      position: "Project Director",
+      name: "Chinmay Milind Shinde",
+      position: "Structure & Planning Consultant",
+      qualification: "B.E. (Civil), M.Tech. (Construction Management)",
+      bio: "Valuer, Chartered Engineer, Structural Auditor",
       image: team3,
-      bio: "Arun's extensive experience in project management ensures timely delivery and quality execution. His attention to detail and leadership skills make him invaluable to our team.",
-      email: "arun@ekdantassociates.com",
+      email: "chinmay@ekdantassociates.com",
       linkedin: "#",
     },
     {
       id: 4,
-      name: "Sanjay Verma",
-      position: "Chief Engineer",
+      name: "Sheetal Dhuri",
+      position: "Advocate & Society Affairs Consultant",
+      qualification: "B.A., LL.B",
+      bio: "Consultant - Society Affairs, Stamp Duty, Registration",
       image: team1,
-      bio: "A structural engineering expert with 15+ years of experience, Sanjay ensures the structural integrity and safety of all our projects while implementing innovative construction techniques.",
-      email: "sanjay@ekdantassociates.com",
+      email: "sheetal@ekdantassociates.com",
       linkedin: "#",
     },
     {
       id: 5,
-      name: "Neha Gupta",
-      position: "Interior Design Head",
+      name: "Prajakta Prashant Thakur",
+      position: "Architect & Planning Consultant",
+      qualification: "B.Arch",
+      bio: "Consultant - Planning & Design",
       image: team2,
-      bio: "Neha's creative expertise in interior design adds the perfect finishing touches to our projects. Her aesthetic sensibility ensures that every space is both beautiful and functional.",
-      email: "neha@ekdantassociates.com",
+      email: "prajakta@ekdantassociates.com",
       linkedin: "#",
     },
     {
       id: 6,
-      name: "Vikram Singh",
-      position: "Business Development",
+      name: "Rohan Milan Pathare",
+      position: "Advocate & Legal Consultant",
+      qualification: "B.A., LL.B",
+      bio: "Consultant - Legal Consultants",
       image: team3,
-      bio: "Vikram's strategic approach to business development has helped Ekdant Associates grow its market presence. His client relationships and negotiation skills drive our continued success.",
-      email: "vikram@ekdantassociates.com",
+      email: "rohan@ekdantassociates.com",
       linkedin: "#",
     },
   ];
@@ -91,7 +97,8 @@ const Team = () => {
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary font-semibold mb-4">{member.position}</p>
+                  <p className="text-primary font-semibold mb-1">{member.position}</p>
+                  <p className="text-muted-foreground mb-4 font-medium">{member.qualification}</p>
                   <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{member.bio}</p>
                   <div className="flex gap-4">
                     <a

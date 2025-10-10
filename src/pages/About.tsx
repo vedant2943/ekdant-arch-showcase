@@ -33,7 +33,7 @@ const About = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-display font-bold mb-6">About Ekdant Associates</h1>
             <p className="text-xl text-muted-foreground">
-              Building excellence since 2008, creating landmarks that define modern living
+              Building excellence since 2018, creating landmarks that define modern living
             </p>
           </div>
         </div>
@@ -46,19 +46,15 @@ const About = () => {
             <h2 className="text-3xl font-display font-bold mb-6">Our Story</h2>
             <div className="space-y-4 text-muted-foreground">
               <p className="text-lg">
-                Founded in 2008, Ekdant Associates has grown from a small construction firm to one of the region's 
-                most respected real estate and construction companies. Our journey has been marked by unwavering 
-                commitment to excellence, innovation, and customer satisfaction.
+                
+Ekdant Associates was founded in 2018 by Mr. Shekhar Dhuri, Mr. Ajit Palav, and Mr. Chinmay Shinde with a clear vision — to deliver professional engineering, project management, and consultancy services that truly understand and fulfill every client’s unique needs.
+
               </p>
               <p className="text-lg">
-                With over 150 successfully completed projects and 500+ satisfied clients, we have established 
-                ourselves as industry leaders. Our portfolio spans residential complexes, commercial towers, 
-                infrastructure projects, and luxury developments.
+               Since its inception, Ekdant Associates has grown into a multidisciplinary firm offering end-to-end solutions in Redevelopment Project Management, Structural and Architectural Design, Legal Consultation, and Revenue Works. Our goal is to combine technical excellence, transparency, and practical experience to ensure that every project — big or small — is executed with precision, efficiency, and trust.
               </p>
               <p className="text-lg">
-                What sets us apart is our holistic approach to every project. From initial design concepts to final 
-                execution, we maintain rigorous quality standards and transparent communication. Our team of experienced 
-                architects, engineers, and construction professionals work together to bring your vision to life.
+                We believe in client satisfaction through clarity, commitment, and quality, ensuring that societies, developers, and property owners receive the best professional guidance at every stage of their project journey.
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Users, Award, TrendingUp, CheckCircle2, FileCheck, Scale, HardHat, LineChart, Shield, Building } from "lucide-react";
+import { Building2, FileCheck, Scale, HardHat, LineChart, Shield, CheckCircle2, Users, Award, TrendingUp } from "lucide-react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import heroImage from "@/assets/hero-building.jpg";
@@ -14,7 +14,7 @@ const Home = () => {
     { icon: Building2, label: "Projects Completed", value: 150, suffix: "+" },
     { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
     { icon: Award, label: "Awards Won", value: 25, suffix: "+" },
-    { icon: TrendingUp, label: "Years Experience", value: 15, suffix: "+" },
+    { icon: TrendingUp, label: "Years Experience", value: 7, suffix: "+" },
   ];
 
   const { ref: statsRef, hasBeenInView: statsInView } = useIntersectionObserver();
@@ -25,79 +25,79 @@ const Home = () => {
   const services = [
     {
       icon: Building2,
-      title: "Redevelopment PMC",
-      description: "Complete end-to-end PMC services for housing society redevelopment projects — from feasibility analysis to project handover.",
+      title: "Redevelopment PMC (Project Management Consultancy)",
+      description: "Ekdant Associates provides complete end-to-end PMC services for housing society redevelopment projects — from feasibility analysis to project handover.",
       points: [
-        "Selecting the right developer through transparent tendering process",
-        "Conducting FSI, TDR, and cost-benefit calculations as per UDCPR",
-        "Drafting and reviewing legal agreements (MoU, DA, POA, etc.)",
-        "Monitoring construction quality, timelines, and financial compliance"
+        "Selecting the right developer through a transparent tendering process.",
+        "Conducting FSI, TDR, and cost-benefit calculations as per UDCPR.",
+        "Drafting and reviewing legal agreements (MoU, DA, POA, etc.).",
+        "Monitoring construction quality, timelines, and financial compliance."
       ]
     },
     {
       icon: FileCheck,
-      title: "Legal & Compliance Advisory",
-      description: "Expert guidance on all legal aspects of real estate projects ensuring complete regulatory compliance and documentation.",
+      title: "Repair PMC",
+      description: "We provide technical guidance and project management for building repair and rehabilitation works.",
       points: [
-        "Property title verification and due diligence services",
-        "RERA registration and compliance management",
-        "Development agreement preparation and review",
-        "Regulatory approvals and NOC procurement"
-      ]
-    },
-    {
-      icon: Scale,
-      title: "Valuation & Financial Consulting",
-      description: "Professional valuation services and financial planning to maximize returns and ensure project viability.",
-      points: [
-        "Market analysis and property valuation",
-        "Financial feasibility studies and ROI analysis",
-        "Cost estimation and budget planning",
-        "Banking and finance facilitation"
-      ]
-    },
-    {
-      icon: HardHat,
-      title: "Construction Management",
-      description: "End-to-end construction management ensuring quality execution and timely project delivery within budget.",
-      points: [
-        "Site supervision and quality control",
-        "Progress monitoring and reporting",
-        "Vendor and contractor management",
-        "Materials procurement and cost optimization"
-      ]
-    },
-    {
-      icon: LineChart,
-      title: "Project Planning & Design",
-      description: "Comprehensive planning and design services to optimize space utilization and ensure aesthetic excellence.",
-      points: [
-        "Architectural and structural design coordination",
-        "Space planning and layout optimization",
-        "3D visualization and virtual walkthroughs",
-        "Sustainable and eco-friendly design solutions"
-      ]
-    },
-    {
-      icon: Shield,
-      title: "Risk Management",
-      description: "Proactive identification and mitigation of project risks to safeguard stakeholder interests throughout development.",
-      points: [
-        "Risk assessment and contingency planning",
-        "Insurance and warranty management",
-        "Dispute resolution and arbitration support",
-        "Quality assurance and defect liability management"
+        "Structural assessment and repair estimation.",
+        "Tendering, contractor selection, and supervision.",
+        "Quality control of materials and workmanship.",
+        "Periodic progress reporting and budget management."
       ]
     },
     {
       icon: CheckCircle2,
-      title: "Handover & Documentation",
-      description: "Smooth project handover with complete documentation ensuring hassle-free possession and occupancy for members.",
+      title: "Revenue Works",
+      description: "Ekdant Associates specializes in revenue and property documentation services, ensuring that all land and property records are accurate and legally compliant.",
       points: [
-        "Occupancy certificate (OC) procurement",
-        "Final account settlement and documentation",
-        "Defect liability period management",
-        "Post-handover support and warranty coordination"
+        "Property measurement and demarcation.",
+        "Mutation entries, 7/12 extracts, and PR Card updates.",
+        "Conversion and amalgamation of land parcels.",
+        "Coordination with revenue authorities and local bodies."
+      ]
+    },
+    {
+      icon: HardHat,
+      title: "Structural Services",
+      description: "Our structural division focuses on safety, stability, and sustainability.",
+      points: [
+        "Structural audits for old buildings as per VVCMC & UDCPR norms.",
+        "Non-destructive testing (NDT) and detailed technical reporting.",
+        "Structural design for new and existing buildings.",
+        "Certification for building safety and occupancy."
+      ]
+    },
+    {
+      icon: LineChart,
+      title: "Architectural Services",
+      description: "We offer comprehensive architectural design and planning solutions that balance functionality, aesthetics, and compliance.",
+      points: [
+        "Concept planning and layout design.",
+        "2D & 3D visualizations.",
+        "Liaison with municipal authorities for plan approvals.",
+        "Coordination with structural and MEP teams."
+      ]
+    },
+    {
+      icon: Shield,
+      title: "Society Efforts",
+      description: "We actively assist housing societies in all administrative and procedural efforts related to redevelopment or repair.",
+      points: [
+        "Preparing and maintaining society documentation.",
+        "Conducting member awareness meetings.",
+        "Coordinating with legal, financial, and technical teams.",
+        "Guiding society committees through decision-making and execution."
+      ]
+    },
+    {
+      icon: Scale,
+      title: "Legal Consultancy in Property",
+      description: "Our legal wing provides professional legal consultation and documentation services related to property and redevelopment.",
+      points: [
+        "Drafting and vetting redevelopment agreements.",
+        "Title verification and due diligence.",
+        "Legal NOCs, approvals, and compliance under cooperative laws.",
+        "Resolving property disputes and guiding societies through legal formalities."
       ]
     }
   ];
@@ -191,9 +191,7 @@ const Home = () => {
               Who We Are
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Ekdant Associates is a leading real estate and construction firm with over 15 years of experience. 
-              We specialize in creating exceptional residential, commercial, and infrastructure projects that 
-              stand the test of time. Our commitment to quality, innovation, and customer satisfaction sets us apart.
+             Ekdant Associates, founded in 2018 by Mr. Shekhar Dhuri, Mr. Ajit Palav, and Mr. Chinmay Shinde, is a multidisciplinary firm delivering professional engineering, project management, and consultancy services. We offer end-to-end solutions in redevelopment, structural and architectural design, legal consultation, and revenue works. Our focus on technical excellence, transparency, and client satisfaction ensures every project is executed efficiently and with trust.
             </p>
             <Button asChild variant="default" size="lg">
               <Link to="/about">Learn More About Us</Link>
@@ -212,7 +210,7 @@ const Home = () => {
               Services Offered
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive real estate solutions tailored to your needs
+              Our Core Services
             </p>
           </div>
 

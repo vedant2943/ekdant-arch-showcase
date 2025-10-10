@@ -19,341 +19,314 @@ const Projects = () => {
       members: "116",
       image: project1,
       status: [
-        "Developer 'M/s Ashoka Buildcon' selected through Tender Process.",
-        "Full FSI & TDR CC '2,04,645 Sq. Ft.' 'G + 14' in received in the name of society in Yr 2021-22",
+        'Developer "M/s Ashoka Buildcon" selected through Tender Process.',
+        'Full FSI & TDR CC "2,04,645 Sq. Ft." "G + 14" in received in the name of society in Yr 2021-22',
         "Society Members Flats & Shops Allotment PAAA Completed.",
         "OC Received Yr 2024."
       ]
     },
     {
       id: 2,
-      title: "Shree Ganesh CHS",
-      location: "Virar (West)",
+      title: "Pancham Park CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "85",
+      members: "45",
       image: project2,
       status: [
-        "Developer 'M/s Paradise Developers' selected through competitive bidding.",
-        "IOD approved and FSI clearance received in 2022.",
-        "Construction work in progress - 60% completed.",
-        "Expected completion by Q4 2025."
+        'Developer "M/s Jivdani Reality" selected through Tender Process.',
+        'Full FSI & TDR CC "67,000 Sq. Ft." "G + 15" in received in the name of society Yr 2023.',
+        "Society Members Flats Allotment Completed.",
+        "Society Members PAAA ongoing.",
+        "9th slab work in progress."
       ]
     },
     {
       id: 3,
-      title: "Laxmi Narayan Tower",
-      location: "Nalasopara (West)",
-      category: "Commercial",
-      members: "45",
+      title: "Anand Park CHS LTD.",
+      location: "Nallasopara (West)",
+      category: "Residential",
+      members: "69",
       image: project3,
       status: [
-        "Developer 'M/s Elite Constructions' appointed after tender process.",
-        "CC received for 'G + 10' commercial complex.",
-        "All legal formalities and agreements completed.",
-        "Construction phase initiated in Jan 2024."
+        'Developer "M/s Dhanlaxmi Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "144668 Sq. Ft." "G + 21" in received in the name of society Yr 2023',
+        "Society Members Flats & Shops Allotment PAAA Completed.",
+        "On-site 23rd Slab in process."
       ]
     },
     {
       id: 4,
-      title: "Sai Krupa Housing Society",
-      location: "Vasai (East)",
+      title: "Namaskar CHS LTD.",
+      location: "Nallasopara (West)",
       category: "Residential",
-      members: "150",
+      members: "27",
       image: project1,
       status: [
-        "Developer selection completed through transparent tender.",
-        "Full FSI approval received - 'G + 16' structure.",
-        "Member allocation and PAAA process completed.",
-        "OC received in 2023."
+        'Developer "M/s Dhanlaxmi Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 18" in received in the name of society Yr 2024.',
+        "Society Members Flats Allotment PAAA Completed.",
+        "On-site 10th Slab work in process."
       ]
     },
     {
       id: 5,
-      title: "Evergreen Heights",
-      location: "Mira Road",
+      title: "Garden CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "98",
+      members: "70",
       image: project2,
       status: [
-        "Developer 'M/s Skyline Builders' selected.",
-        "IOD and CC clearances obtained in 2021.",
-        "Construction 80% complete.",
-        "Handover scheduled for Q2 2025."
+        'Developer "M/s Shree Sai Realtor\'s" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 14" in received in the name of society Yr 2023.',
+        "Society Members Flats Allotment PAAA Completed.",
+        "On-site 6th slab work in process."
       ]
     },
     {
       id: 6,
-      title: "Shivam Commercial Complex",
-      location: "Bhayandar",
-      category: "Commercial",
-      members: "60",
+      title: "Chitra Bhawan CHS LTD.",
+      location: "Vasai (West)",
+      category: "Residential",
+      members: "15",
       image: project3,
       status: [
-        "Developer finalized through competitive bidding.",
-        "CC approved for mixed-use development 'G + 12'.",
-        "Legal documentation and society agreements finalized.",
-        "Foundation work completed."
+        'Developer "M/s Mahashraman" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 18" in received in the name of society Yr 2023.',
+        "Society Members Flats Allotment PAAA Completed.",
+        "On-site 19th slab work in process."
       ]
     },
     {
       id: 7,
-      title: "Radha Krishna Residency",
-      location: "Nallasopara (East)",
+      title: "Jay Ganesh Krupa CHS LTD.",
+      location: "Vasai (West)",
       category: "Residential",
-      members: "120",
+      members: "38",
       image: project1,
       status: [
-        "Developer 'M/s Crown Developers' appointed.",
-        "FSI and TDR calculations completed - 1,85,000 Sq. Ft.",
-        "All member flats allocated successfully.",
-        "OC obtained in 2024."
+        'Developer "M/s Sai Kiran Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 15" in received in the name of society Yr 2024.',
+        "Society Members Flats Allotment Completed & PAAA ongoing.",
+        "On-site 14th slab work in process."
       ]
     },
     {
       id: 8,
-      title: "Omkar Heights",
-      location: "Virar (East)",
+      title: "Ami Park D15 CHS LTD.",
+      location: "Nallasopara (West)",
       category: "Residential",
-      members: "75",
+      members: "48 (Tenants)",
       image: project2,
       status: [
-        "Developer selection through tender process completed.",
-        "Building plan approved 'G + 13'.",
-        "Construction in progress - 45% completed.",
-        "Expected delivery in 2026."
+        'Developer "M/s Jivdani Krupa Builders & Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 7" in received in the name of society Yr 2025.',
+        "On Site preparation of foundation in process."
       ]
     },
     {
       id: 9,
-      title: "Metro Plaza",
-      location: "Nalasopara (West)",
-      category: "Commercial",
-      members: "35",
+      title: "Mukti Vaibhav CHS LTD.",
+      location: "Nallasopara (West)",
+      category: "Residential",
+      members: "48",
       image: project3,
       status: [
-        "Developer 'M/s Metro Constructions' finalized.",
-        "CC received for retail and office complex.",
-        "Member shop allocation completed.",
-        "Interior work in progress."
+        'Developer "M/s Jivdani Krupa Builders & Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 7" in received in the name of society Yr 2025.',
+        "On Site preparation of foundation in process."
       ]
     },
     {
       id: 10,
-      title: "Sunrise Valley CHS",
-      location: "Vasai (West)",
+      title: "The Pancharatana Lodha CHS LTD.",
+      location: "Nallasopara (West)",
       category: "Residential",
-      members: "135",
+      members: "71",
       image: project1,
       status: [
-        "Developer appointed through transparent tender.",
-        "Full FSI approval - 'G + 15' twin towers.",
-        "PAAA and member agreements finalized.",
-        "Project completed and OC received in 2023."
+        'Developer "M/s Radhe Builders & Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 14" in the name of society in received & "G + 18" in the name of society in process.',
+        "On-site plinth work has been completed."
       ]
     },
     {
       id: 11,
-      title: "Golden Gate Apartments",
-      location: "Mira Road",
+      title: "Sai Palace CHS LTD.",
+      location: "Bhayandar (East)",
       category: "Residential",
-      members: "92",
+      members: "64",
       image: project2,
       status: [
-        "Developer 'M/s Golden Constructions' selected.",
-        "IOD clearance and CC received.",
-        "Construction 70% complete.",
-        "Finishing work in progress."
+        'Developer "M/s Bhadrankar Enterprises LLP" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 21" in the name of society in process.'
       ]
     },
     {
       id: 12,
-      title: "Pearl Commercial Hub",
-      location: "Bhayandar",
-      category: "Commercial",
-      members: "50",
+      title: "Shri Krish Niwas CHS LTD.",
+      location: "Bhandup (East)",
+      category: "Residential",
+      members: "9",
       image: project3,
       status: [
-        "Developer finalized after competitive bidding.",
-        "CC approved for 'G + 11' commercial structure.",
-        "All legal formalities completed.",
-        "Structural work 60% completed."
+        'Developer "M/s Guru Krupa Developers" selected through Tender Process.',
+        "Section 79a in process."
       ]
     },
     {
       id: 13,
-      title: "Mahalaxmi Towers",
+      title: "Mukti Narayan CHS LTD.",
       location: "Nallasopara (West)",
       category: "Residential",
-      members: "108",
+      members: "27",
       image: project1,
       status: [
-        "Developer 'M/s Mahalaxmi Developers' appointed.",
-        "FSI calculations and CC received.",
-        "Member flat allocation completed.",
-        "OC received in 2024."
+        'Developer "M/s Jivdani Krupa Builders & Developers" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 12" in received in the name of society Yr 2025.',
+        "On Site piling work in process."
       ]
     },
     {
       id: 14,
-      title: "Green Park Society",
-      location: "Virar (West)",
+      title: "New Matruchhaya CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "88",
+      members: "53",
       image: project2,
       status: [
-        "Developer selection through tender completed.",
-        "Building sanctions received 'G + 14'.",
-        "Construction phase ongoing - 55% completed.",
-        "Expected completion in Q3 2025."
+        'Developer "M/s Om Balaji" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 29" in the name of society received Yr 2024.',
+        "Society Members Flats Allotment Completed & PAAA ongoing.",
+        "On-site piling work in process."
       ]
     },
     {
       id: 15,
-      title: "City Center Mall",
-      location: "Nalasopara (East)",
-      category: "Commercial",
-      members: "40",
+      title: "Beas Sadan & Beas Sadan C & D CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Residential",
+      members: "53",
       image: project3,
       status: [
-        "Developer 'M/s City Developers' finalized.",
-        "CC approved for shopping complex.",
-        "Shop allocation to members completed.",
-        "Fit-out work in progress."
+        'Developer "M/s Ashoka Reality" selected through Tender Process.',
+        'Full FSI & TDR CC "G + 21" in the name of society received Yr 2024.',
+        "Society Members Flats Allotment & PAAA ongoing.",
+        "On-site piling work in process."
       ]
     },
     {
       id: 16,
-      title: "Shanti Nagar CHS",
-      location: "Vasai (East)",
+      title: "Paras CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "125",
+      members: "64",
       image: project1,
       status: [
-        "Developer appointed through transparent process.",
-        "Full FSI approval received - 'G + 16'.",
-        "All member agreements finalized.",
-        "OC obtained in 2023."
+        'Developer "M/s Deep Ramkala Developers" selected through Tender Process.',
+        "DA POA is done.",
+        "CC in process."
       ]
     },
     {
       id: 17,
-      title: "Diamond Heights",
-      location: "Mira Road",
+      title: "Surykirti Old & New CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "95",
+      members: "126",
       image: project2,
       status: [
-        "Developer 'M/s Diamond Constructions' selected.",
-        "IOD and CC clearances obtained.",
-        "Construction 65% complete.",
-        "Interior finishing phase commenced."
+        'Developer "M/s Sanskruti Builders & Developers" selected through Tender Process.',
+        "DA POA is done.",
+        "CC in process."
       ]
     },
     {
       id: 18,
-      title: "Business Bay Complex",
-      location: "Bhayandar",
-      category: "Commercial",
-      members: "55",
+      title: "Chandresh Vandan CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Residential",
+      members: "86",
       image: project3,
       status: [
-        "Developer finalized through competitive tender.",
-        "CC received for 'G + 10' IT park.",
-        "Legal documentation completed.",
-        "Construction 40% completed."
+        'Developer "M/s Ashoka Reality" selected through Tender Process.',
+        "DA POA is done.",
+        "CC in process."
       ]
     },
     {
       id: 19,
-      title: "Ganpati Residency",
-      location: "Nallasopara (East)",
+      title: "Sneha Deep CHS LTD.",
+      location: "Vasai (West)",
       category: "Residential",
-      members: "112",
+      members: "24",
       image: project1,
       status: [
-        "Developer 'M/s Ganpati Developers' appointed.",
-        "FSI and TDR CC received.",
-        "Member flat allocation successful.",
-        "Project completed with OC in 2024."
+        'Developer "M/s Parag Construction" selected through Tender Process.',
+        "DA POA & PLAN in process."
       ]
     },
     {
       id: 20,
-      title: "Hill View Apartments",
-      location: "Virar (East)",
+      title: "New Lotus CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "82",
+      members: "40",
       image: project2,
       status: [
-        "Developer selection completed.",
-        "Building plan approved 'G + 13'.",
-        "Construction ongoing - 50% completed.",
-        "Expected handover in 2026."
+        'Developer "M/s Vinayak Builders & Developers" selected through Tender Process.',
+        "DA POA & PLAN in process."
       ]
     },
     {
       id: 21,
-      title: "Trade Center",
-      location: "Nalasopara (West)",
-      category: "Commercial",
-      members: "38",
+      title: "New Matruashish CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Residential",
+      members: "53",
       image: project3,
       status: [
-        "Developer 'M/s Trade Constructions' finalized.",
-        "CC approved for commercial complex.",
-        "Shop and office allocation completed.",
-        "Internal work in progress."
+        'Developer "M/s Vinayak Builders & Developers" selected through Tender Process.',
+        "DA POA & PLAN in process."
       ]
     },
     {
       id: 22,
-      title: "Sai Dham CHS",
-      location: "Vasai (West)",
+      title: "Sham CHS LTD.",
+      location: "Nallasopara (East)",
       category: "Residential",
-      members: "140",
+      members: "22",
       image: project1,
       status: [
-        "Developer appointed through tender process.",
-        "Full FSI approval - 'G + 15'.",
-        "All member formalities completed.",
-        "OC received in 2023."
+        'Developer "M/s Shree Shakti Infra" selected through Tender Process.',
+        "DA POA & PLAN in process."
       ]
     },
     {
       id: 23,
-      title: "Skyline Towers",
-      location: "Mira Road",
+      title: "Guru Smruti CHS LTD.",
+      location: "Vasai (West)",
       category: "Residential",
-      members: "100",
+      members: "18",
       image: project2,
-      status: [
-        "Developer 'M/s Skyline Developers' selected.",
-        "IOD and CC received.",
-        "Construction 75% complete.",
-        "Final phases under execution."
-      ]
+      status: ["Tendering In Process."]
     },
     {
       id: 24,
-      title: "Corporate Square",
-      location: "Bhayandar",
-      category: "Commercial",
-      members: "48",
+      title: "Chandramukhi CHS LTD.",
+      location: "Vasai (West)",
+      category: "Residential",
+      members: "37",
       image: project3,
-      status: [
-        "Developer finalized after tender.",
-        "CC approved for 'G + 12' corporate offices.",
-        "Legal agreements executed.",
-        "Structural work 55% completed."
-      ]
+      status: ["Project Report In Process."]
     }
   ];
 
   const categories = ["All", "Residential", "Commercial"];
 
-  const filteredProjects = filter === "All" 
-    ? projects 
-    : projects.filter(p => p.category === filter);
+  const filteredProjects =
+    filter === "All"
+      ? projects
+      : projects.filter((p) => p.category === filter);
 
   const toggleExpand = (id: number) => {
     setExpandedProject(expandedProject === id ? null : id);
@@ -395,8 +368,8 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <Card 
-                key={project.id} 
+              <Card
+                key={project.id}
                 className="overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-64 overflow-hidden">
@@ -442,7 +415,8 @@ const Projects = () => {
                       <ol className="space-y-2">
                         {project.status.map((item, idx) => (
                           <li key={idx} className="text-sm text-muted-foreground pl-4">
-                            <span className="font-semibold text-foreground">{idx + 1}.</span> {item}
+                            <span className="font-semibold text-foreground">{idx + 1}.</span>{" "}
+                            {item}
                           </li>
                         ))}
                       </ol>
