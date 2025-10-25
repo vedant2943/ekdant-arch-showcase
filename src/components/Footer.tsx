@@ -22,20 +22,19 @@ const Footer = () => {
             <table className="w-full text-left text-sm text-muted-foreground">
               <thead>
                 <tr>
-                  <th className="pb-1">Sr No</th>
-                  <th className="pb-1">Registration Number</th>
+                  <th className="pb-1">No.</th>
                   <th className="pb-1">Authority</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td>AAJFE4057C</td>
+                
                   <td>INCOME TAX – GOVT.OF INDIA</td>
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>2788JEF4057C1ZM</td>
+                
                   <td>GOODS, SERVICES TAX – GOVT.OF INDIA</td>
                 </tr>
               </tbody>
@@ -55,7 +54,7 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-primary flex-shrink-0" />
                 <a href="tel:+917768875444" className="text-muted-foreground hover:text-primary transition-colors">
-                  7768875444 / 7738222255
+                  9270245553
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -71,15 +70,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter size={20} />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin size={20} />
-              </a>
+              
               <a href="https://www.instagram.com/ekdant_associates/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram size={20} />
               </a>

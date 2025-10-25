@@ -36,36 +36,7 @@ const Team = () => {
       email: "chinmay@ekdantassociates.com",
       linkedin: "#",
     },
-    {
-      id: 4,
-      name: "Sheetal Dhuri",
-      position: "Advocate & Society Affairs Consultant",
-      qualification: "B.A., LL.B",
-      bio: "Consultant - Society Affairs, Stamp Duty, Registration",
-      image: team1,
-      email: "sheetal@ekdantassociates.com",
-      linkedin: "#",
-    },
-    {
-      id: 5,
-      name: "Prajakta Prashant Thakur",
-      position: "Architect & Planning Consultant",
-      qualification: "B.Arch",
-      bio: "Consultant - Planning & Design",
-      image: team2,
-      email: "prajakta@ekdantassociates.com",
-      linkedin: "#",
-    },
-    {
-      id: 6,
-      name: "Rohan Milan Pathare",
-      position: "Advocate & Legal Consultant",
-      qualification: "B.A., LL.B",
-      bio: "Consultant - Legal Consultants",
-      image: team3,
-      email: "rohan@ekdantassociates.com",
-      linkedin: "#",
-    },
+    // --- Removed members 4, 5, and 6 ---
   ];
 
   return (
@@ -74,7 +45,9 @@ const Team = () => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-display font-bold mb-6">Meet Our Team</h1>
+            <h1 className="text-5xl font-display font-bold mb-6">
+              Meet Our Team
+            </h1>
             <p className="text-xl text-muted-foreground">
               The passionate professionals behind Ekdant Associates' success
             </p>
@@ -87,7 +60,10 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member) => (
-              <Card key={member.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <Card
+                key={member.id}
+                className="overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="relative h-80 overflow-hidden">
                   <img
                     src={member.image}
@@ -97,9 +73,15 @@ const Team = () => {
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary font-semibold mb-1">{member.position}</p>
-                  <p className="text-muted-foreground mb-4 font-medium">{member.qualification}</p>
-                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">{member.bio}</p>
+                  <p className="text-primary font-semibold mb-1">
+                    {member.position}
+                  </p>
+                  <p className="text-muted-foreground mb-4 font-medium">
+                    {member.qualification}
+                  </p>
+                  <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+                    {member.bio}
+                  </p>
                   <div className="flex gap-4">
                     <a
                       href={`mailto:${member.email}`}
@@ -131,8 +113,9 @@ const Team = () => {
               Join Our Team
             </h2>
             <p className="text-muted-foreground mb-8">
-              We're always looking for talented individuals who share our passion for excellence. 
-              If you're interested in joining the Ekdant Associates family, we'd love to hear from you.
+              We're always looking for talented individuals who share our
+              passion for excellence. If you're interested in joining the Ekdant
+              Associates family, we'd love to hear from you.
             </p>
             <a
               href="mailto:careers@ekdantassociates.com"

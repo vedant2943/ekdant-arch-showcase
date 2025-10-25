@@ -25,7 +25,9 @@ const Contact = () => {
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -36,8 +38,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "7768875444 / 7738222255 / 7709256757 / 9270245553",
-      link: "tel:+917768875444",
+      details: "9270245553",
+      link: "tel:+919270245553",
     },
     {
       icon: Mail,
@@ -48,7 +50,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Address",
-      details: "Shop no.3 Gangotri apartment Sanyukta Nagar Achole Cross Road Nallasopara East 401209",
+      details:
+        "Shop no.3 Gangotri apartment Sanyukta Nagar Achole Cross Road Nallasopara East 401209",
       link: "https://maps.app.goo.gl/oG44HN8V2dcoV1HXA",
     },
     {
@@ -60,7 +63,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Working Hours",
-      details: "Mon - Sat: 9:00 AM - 6:00 PM",
+      details: ["Mon - Sun (Fri closed):", "10:00 AM - 6:00 PM"],
       link: "#",
     },
   ];
@@ -71,9 +74,12 @@ const Contact = () => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-display font-bold mb-6">Get in Touch</h1>
+            <h1 className="text-5xl font-display font-bold mb-6">
+              Get in Touch
+            </h1>
             <p className="text-xl text-muted-foreground">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              We'd love to hear from you. Send us a message and we'll respond as
+              soon as possible.
             </p>
           </div>
         </div>
@@ -84,22 +90,47 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="text-center hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <info.icon className="w-10 h-10 text-primary mx-auto mb-4" />
                   <h3 className="font-bold mb-2">{info.title}</h3>
-                  {info.link.startsWith("#") ? (
-                    <p className="text-sm text-muted-foreground">{info.details}</p>
+
+                  {/* --- START OF CHANGES --- */}
+
+                  {/* First, check if details is an array (for Working Hours) */}
+                  {Array.isArray(info.details) ? (
+                    <div className="text-sm text-muted-foreground">
+                      {info.details.map((line, i) => (
+                        <span key={i} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </div>
+                  ) : // If it's NOT an array, use your original logic
+                  info.link.startsWith("#") ? (
+                    <p className="text-sm text-muted-foreground">
+                      {info.details}
+                    </p>
                   ) : (
                     <a
                       href={info.link}
-                      target={info.link.startsWith("http") ? "_blank" : undefined}
-                      rel={info.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                      target={
+                        info.link.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        info.link.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       className="text-sm text-muted-foreground hover:text-primary transition-colors break-words"
                     >
                       {info.details}
                     </a>
                   )}
+                  {/* --- END OF CHANGES --- */}
                 </CardContent>
               </Card>
             ))}
@@ -108,10 +139,15 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-display font-bold mb-6">Send Us a Message</h2>
+              <h2 className="text-3xl font-display font-bold mb-6">
+                Send Us a Message
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Full Name *
                   </label>
                   <Input
@@ -125,7 +161,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Email Address *
                   </label>
                   <Input
@@ -140,7 +179,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Phone Number
                   </label>
                   <Input
@@ -154,7 +196,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Subject *
                   </label>
                   <Input
@@ -168,7 +213,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Message *
                   </label>
                   <Textarea
