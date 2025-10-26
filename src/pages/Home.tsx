@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Building2, FileCheck, Scale, HardHat, LineChart, Shield, CheckCircle2, Users, Award, TrendingUp } from "lucide-react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import heroImage from "@/assets/hero-building.jpg";
+import heroImage from "@/assets/hero-building.jpg"; 
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -129,30 +129,12 @@ const Home = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        
-        <div className="relative z-10 text-center text-white px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
-            Commit to <span className="text-primary">Care</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Building Tomorrow's Landmarks with Excellence and Dedication
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="default">
-              <Link to="/projects">View Our Projects</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-foreground">
-              <Link to="/contact">Contact Us</Link>
-            </Button>
-          </div>
-        </div>
+      <section className="h-screen w-full pt-20 flex items-center justify-center">
+        <img 
+          src={heroImage} 
+          alt="Ekdant Associates - Active Projects" 
+          className="w-full h-full object-contain" 
+        />
       </section>
 
       {/* Stats Section */}
@@ -191,7 +173,7 @@ const Home = () => {
               Who We Are
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-             Ekdant Associates, founded in 2018 by Mr. Shekhar Dhuri, Mr. Ajit Palav, and Mr. Chinmay Shinde, is a multidisciplinary firm delivering professional engineering, project management, and consultancy services. We offer end-to-end solutions in redevelopment, structural and architectural design, legal consultation, and revenue works. Our focus on technical excellence, transparency, and client satisfaction ensures every project is executed efficiently and with trust.
+              Ekdant Associates, founded in 2018 by Mr. Shekhar Dhuri, Mr. Ajit Palav, and Mr. Chinmay Shinde, is a multidisciplinary firm delivering professional engineering, project management, and consultancy services. We offer end-to-end solutions in redevelopment, structural and architectural design, legal consultation, and revenue works. Our focus on technical excellence, transparency, and client satisfaction ensures every project is executed efficiently and with trust.
             </p>
             <Button asChild variant="default" size="lg">
               <Link to="/about">Learn More About Us</Link>
@@ -206,7 +188,8 @@ const Home = () => {
           <div className={`text-center mb-12 transition-all duration-1000 ${
             servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}>
-            <h2 className="text-4xl font-display font-bold mb-4">
+            {/* CHANGED: Added text-primary */}
+            <h2 className="text-4xl font-display font-bold mb-4 text-primary">
               Services Offered
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -218,7 +201,8 @@ const Home = () => {
             {services.map((service, index) => (
               <Card 
                 key={index}
-                className={`hover:shadow-xl transition-all duration-700 ${
+                // --- THIS IS THE LINE I CHANGED ---
+                className={`border-2 border-transparent hover:border-primary hover:scale-105 transition-all duration-700 ${
                   servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
@@ -248,7 +232,8 @@ const Home = () => {
           <div className={`text-center mb-12 transition-all duration-1000 ${
             projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}>
-            <h2 className="text-4xl font-display font-bold mb-4">
+             {/* CHANGED: Added text-primary */}
+            <h2 className="text-4xl font-display font-bold mb-4 text-primary">
               Recent Projects
             </h2>
             <p className="text-muted-foreground">
@@ -260,7 +245,8 @@ const Home = () => {
             {recentProjects.map((project, index) => (
               <Card 
                 key={project.id} 
-                className={`overflow-hidden hover:shadow-xl transition-all duration-700 ${
+                // --- I ADDED THE SAME HOVER EFFECT HERE TOO ---
+                className={`overflow-hidden border-2 border-transparent hover:border-primary hover:scale-105 transition-all duration-700 ${
                   projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
@@ -269,7 +255,7 @@ const Home = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" // Note: simple hover:scale-110 is fine too
                   />
                   <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {project.category}
