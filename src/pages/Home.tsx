@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, FileCheck, Scale, HardHat, LineChart, Shield, CheckCircle2, Users, Award, TrendingUp } from "lucide-react";
+import { Building2, FileCheck, Scale, HardHat, LineChart, Shield, CheckCircle2, Users, /* Removed Award */ TrendingUp } from "lucide-react"; // Removed Award icon import
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import heroImage from "@/assets/hero-building.jpg"; 
+import heroImage from "@/assets/hero-building.jpg";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
 const Home = () => {
+  // --- UPDATED STATS ARRAY ---
   const stats = [
-    { icon: Building2, label: "Projects Completed", value: 150, suffix: "+" },
+    { icon: Building2, label: "Projects Completed", value: 25, suffix: "+" }, // Value changed to 25
     { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
-    { icon: Award, label: "Awards Won", value: 25, suffix: "+" },
+    // { icon: Award, label: "Awards Won", value: 25, suffix: "+" }, // This line is removed
     { icon: TrendingUp, label: "Years Experience", value: 7, suffix: "+" },
   ];
+  // -------------------------
 
   const { ref: statsRef, hasBeenInView: statsInView } = useIntersectionObserver();
   const { ref: aboutRef, hasBeenInView: aboutInView } = useIntersectionObserver();
@@ -130,22 +132,23 @@ const Home = () => {
     <main>
       {/* Hero Section */}
       <section className="h-screen w-full pt-20 flex items-center justify-center">
-        <img 
-          src={heroImage} 
-          alt="Ekdant Associates - Active Projects" 
-          className="w-full h-full object-contain" 
+        <img
+          src={heroImage}
+          alt="Ekdant Associates - Active Projects"
+          className="w-full h-full object-contain"
         />
       </section>
 
       {/* Stats Section */}
       <section ref={statsRef} className="py-16 bg-secondary">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {/* UPDATED: Grid will now have 3 columns on md screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {stats.map((stat, index) => {
               const count = useCountAnimation(stat.value, 2000, statsInView);
               return (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`text-center transition-all duration-700 ${
                     statsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
@@ -188,7 +191,6 @@ const Home = () => {
           <div className={`text-center mb-12 transition-all duration-1000 ${
             servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}>
-            {/* CHANGED: Added text-primary */}
             <h2 className="text-4xl font-display font-bold mb-4 text-primary">
               Services Offered
             </h2>
@@ -199,10 +201,13 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card 
+              <Card
                 key={index}
-                // --- THIS IS THE LINE I CHANGED ---
-                className={`border-2 border-transparent hover:border-primary hover:scale-105 transition-all duration-700 ${
+                className={`border-2 border-transparent hover:border-primary hover:scale-105
+                            transition-opacity duration-700 ease-out
+                            transition-transform duration-700 ease-out
+                            hover:transition-transform hover:duration-300 hover:ease-in-out
+                            hover:transition-colors hover:duration-300 hover:ease-in-out ${
                   servicesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
@@ -232,7 +237,6 @@ const Home = () => {
           <div className={`text-center mb-12 transition-all duration-1000 ${
             projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           }`}>
-             {/* CHANGED: Added text-primary */}
             <h2 className="text-4xl font-display font-bold mb-4 text-primary">
               Recent Projects
             </h2>
@@ -243,10 +247,13 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {recentProjects.map((project, index) => (
-              <Card 
-                key={project.id} 
-                // --- I ADDED THE SAME HOVER EFFECT HERE TOO ---
-                className={`overflow-hidden border-2 border-transparent hover:border-primary hover:scale-105 transition-all duration-700 ${
+              <Card
+                key={project.id}
+                className={`overflow-hidden border-2 border-transparent hover:border-primary hover:scale-105
+                            transition-opacity duration-700 ease-out
+                            transition-transform duration-700 ease-out
+                            hover:transition-transform hover:duration-300 hover:ease-in-out
+                            hover:transition-colors hover:duration-300 hover:ease-in-out ${
                   projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
@@ -255,7 +262,7 @@ const Home = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" // Note: simple hover:scale-110 is fine too
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                     {project.category}
