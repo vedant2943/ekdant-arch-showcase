@@ -28,7 +28,6 @@ const ProjectCard = memo(({ project, index, expandedProject, onToggleExpand }: {
 }) => {
   const { ref: cardRef, hasBeenInView: cardInView } = useIntersectionObserver({
     threshold: 0.1, // Trigger animation when 10% of the card is visible
-    triggerOnce: true, // Only animate once
   });
 
   return (
