@@ -1,16 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Mail } from "lucide-react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver"; // ADDED
+import { Linkedin, Mail } from "lucide-react"; // Mail and Linkedin imports can be removed if not used elsewhere
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
 
 const Team = () => {
-  // --- ADDED: Hooks for scroll animations ---
+  // Hooks for scroll animations
   const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver();
-  const { ref: teamGridRef, hasBeenInView: teamGridInView } = useIntersectionObserver();
+  // Removed teamGridRef as individual cards now handle their own animation trigger
   const { ref: ctaRef, hasBeenInView: ctaInView } = useIntersectionObserver();
-  // ------------------------------------------
 
   const teamMembers = [
     {
@@ -20,8 +19,8 @@ const Team = () => {
       qualification: "DDEO, GDCA",
       bio: "Consultant – Co-operative Housing Societies\nAdvisor – Redevelopment of Buildings of Housing Society",
       image: team1,
-      email: "shekhar@ekdantassociates.com",
-      linkedin: "#",
+      email: "shekhar@ekdantassociates.com", // Kept data in case needed later
+      linkedin: "#", // Kept data in case needed later
     },
     {
       id: 2,
@@ -30,8 +29,8 @@ const Team = () => {
       qualification: "B.E. (Civil)",
       bio: "Consultant – Redevelopment/Repairs/Revenue\nSite Execution / Costing",
       image: team2,
-      email: "ajit@ekdantassociates.com",
-      linkedin: "#",
+      email: "ajit@ekdantassociates.com", // Kept data in case needed later
+      linkedin: "#", // Kept data in case needed later
     },
     {
       id: 3,
@@ -40,8 +39,8 @@ const Team = () => {
       qualification: "B.E. (Civil), M.Tech. (Construction Management)",
       bio: "Valuer, Chartered Engineer, Structural Auditor",
       image: team3,
-      email: "chinmay@ekdantassociates.com",
-      linkedin: "#",
+      email: "chinmay@ekdantassociates.com", // Kept data in case needed later
+      linkedin: "#", // Kept data in case needed later
     },
   ];
 
@@ -55,7 +54,7 @@ const Team = () => {
               headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
             }`}
           >
-            <h1 className="text-5xl font-display font-bold mb-6 text-primary"> {/* Added text-primary */}
+            <h1 className="text-5xl font-display font-bold mb-6 text-primary">
               Meet Our Team
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -66,11 +65,12 @@ const Team = () => {
       </section>
 
       {/* Team Grid */}
-      <section ref={teamGridRef} className="py-16">
+      {/* Removed teamGridRef from section tag */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => { // Added index for stagger
-              // --- Individual Card Animation Hook ---
+            {teamMembers.map((member, index) => {
+              // Individual Card Animation Hook
               const { ref: cardRef, hasBeenInView: cardInView } = useIntersectionObserver();
 
               return (
@@ -103,25 +103,12 @@ const Team = () => {
                     <p className="text-muted-foreground mb-4 font-medium">
                       {member.qualification}
                     </p>
-                    <p className="text-muted-foreground mb-6 text-sm whitespace-pre-line leading-relaxed"> {/* Added whitespace-pre-line to respect \n */}
+                    <p className="text-muted-foreground mb-6 text-sm whitespace-pre-line leading-relaxed">
                       {member.bio}
                     </p>
-                    <div className="flex gap-4">
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Mail size={20} />
-                      </a>
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Linkedin size={20} />
-                      </a>
-                    </div>
+                    {/* --- REMOVED SOCIAL LINKS DIV --- */}
+                    {/* <div className="flex gap-4"> ... links were here ... </div> */}
+                    {/* -------------------------------- */}
                   </CardContent>
                 </Card>
               );
@@ -146,13 +133,15 @@ const Team = () => {
               passion for excellence. If you're interested in joining the Ekdant
               Associates family, we'd love to hear from you.
             </p>
+            {/* --- UPDATED EMAIL LINK TO USE CORRECT ADDRESS --- */}
             <a
-              href="mailto:careers@ekdantassociates.com"
+              href="mailto:ekdant_associates@hotmail.com" // Use the actual email from contactInfo
               className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
             >
               <Mail size={20} />
-              careers@ekdantassociates.com
+              ekdant_associates@hotmail.com
             </a>
+            {/* ----------------------------------------------- */}
           </div>
         </div>
       </section>
@@ -161,3 +150,4 @@ const Team = () => {
 };
 
 export default Team;
+

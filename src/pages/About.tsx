@@ -1,7 +1,7 @@
 import { Target, Eye, Award, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver"; 
-import logo from "@/assets/logo.png"; 
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import logo from "@/assets/logo.png";
 
 const About = () => {
   const values = [
@@ -18,7 +18,7 @@ const About = () => {
     {
       icon: Award,
       title: "Quality Excellence",
-      description: "We are committed to delivering projects that stand the test of time, using premium materials and employing best-in-class construction practices.",
+      description: "We believe true excellence comes from uncompromising quality and constant supervision. Every project is monitored in detail to ensure it meets our benchmark of perfection — no shortcuts, no compromises, only quality.",
     },
     {
       icon: Users,
@@ -27,35 +27,31 @@ const About = () => {
     },
   ];
 
-  // --- Hooks for scroll animations ---
+  // Hooks for scroll animations
   const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver();
   const { ref: storyRef, hasBeenInView: storyInView } = useIntersectionObserver();
   const { ref: valuesRef, hasBeenInView: valuesInView } = useIntersectionObserver();
   const { ref: whyChooseUsRef, hasBeenInView: whyChooseUsInView } = useIntersectionObserver();
-  // ------------------------------------------
 
   return (
     <main className="pt-20">
       {/* Header Section */}
       <section ref={headerRef} className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          {/* ADDED: Animation classes */}
           <div className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
               headerInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}>
-            
-            {/* --- MODIFIED: Wrapped logo and h1 in a flex container --- */}
+
             <div className="flex justify-center items-center gap-4 mb-6">
-              <img 
-                src={logo} 
-                alt="Ekdant Associates Logo" 
-                className="w-20 h-20" // Removed mx-auto
+              <img
+                src={logo}
+                alt="Ekdant Associates Logo"
+                className="w-20 h-20"
               />
-              <h1 className="text-5xl font-display font-bold"> {/* Removed mb-6 */}
+              <h1 className="text-5xl font-display font-bold">
                  <span className="text-primary">Ekdant Associates</span>
               </h1>
             </div>
-            {/* --------------------------------------------------------- */}
 
             <p className="text-xl text-muted-foreground">
               Building excellence since 2018, creating landmarks that define modern living
@@ -67,11 +63,9 @@ const About = () => {
       {/* Company Story */}
       <section ref={storyRef} className="py-20">
         <div className="container mx-auto px-4">
-          {/* ADDED: Animation classes */}
           <div className={`max-w-4xl mx-auto transition-all duration-1000 ${
               storyInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}>
-            {/* CHANGED: Added text-primary */}
             <h2 className="text-3xl font-display font-bold mb-6 text-primary">Our Story</h2>
             <div className="space-y-4 text-muted-foreground">
               <p className="text-lg">
@@ -91,21 +85,18 @@ const About = () => {
       {/* Values Grid */}
       <section ref={valuesRef} className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
-          {/* ADDED: Animation classes */}
           <div className={`text-center mb-12 transition-all duration-1000 ${
               valuesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
             }`}>
-            {/* CHANGED: Added text-primary */}
             <h2 className="text-4xl font-display font-bold mb-4 text-primary">Our Core Values</h2>
             <p className="text-muted-foreground">The principles that guide everything we do</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {values.map((value, index) => (
-              <Card 
-                key={index} 
-                // ADDED: Hover scale effect
-                className={`border-2 hover:border-primary hover:scale-105 transition-all duration-700 ${
+              <Card
+                key={index}
+                className={`border-2 hover:border-primary hover:scale-105 transition-all duration-700 ${ // Keep original animation class here
                   valuesInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
@@ -125,115 +116,96 @@ const About = () => {
       <section ref={whyChooseUsRef} className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* ADDED: Animation for title */}
             <div className={`transition-all duration-1000 ${
                 whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
               }`}>
-              {/* CHANGED: Added text-primary */}
               <h2 className="text-3xl font-display font-bold mb-8 text-center text-primary">
                 Why Choose Ekdant Associates?
               </h2>
             </div>
-            
+
+            {/* --- UPDATED GRID with 6 items --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* ADDED: Animation + Stagger for all 6 items */}
-              <div 
+              {/* Item 1 - NEW */}
+              <div
                 className={`flex gap-4 transition-all duration-700 ${
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: '0ms' }}
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  1
-                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">1</div>
                 <div>
-                  <h3 className="font-bold mb-2">Proven Track Record</h3>
-                  <p className="text-muted-foreground">
-                    15+ years of excellence with over 150 successfully delivered projects
-                  </p>
+                  <h3 className="font-bold mb-2">Comprehensive Solutions</h3>
+                  <p className="text-muted-foreground">We manage your project from feasibility and legal work to construction and handover.</p>
                 </div>
               </div>
-              <div 
+              {/* Item 2 (Was 1) */}
+              <div
                 className={`flex gap-4 transition-all duration-700 ${
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: '100ms' }}
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  2
-                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">2</div>
                 <div>
-                  <h3 className="font-bold mb-2">Expert Team</h3>
-                  <p className="text-muted-foreground">
-                    Highly qualified architects, engineers, and construction professionals
-                  </p>
+                  <h3 className="font-bold mb-2">Proven Track Record</h3>
+                  <p className="text-muted-foreground">7+ years of excellence with over 25 successfully delivered projects</p>
                 </div>
               </div>
-              <div 
+              {/* Item 3 (Was 2) - Updated Description */}
+              <div
                 className={`flex gap-4 transition-all duration-700 ${
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: '200ms' }}
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  3
-                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">3</div>
                 <div>
-                  <h3 className="font-bold mb-2">Quality Assurance</h3>
-                  <p className="text-muted-foreground">
-                    Rigorous quality control at every stage of construction
-                  </p>
+                  <h3 className="font-bold mb-2">Expert Team</h3>
+                  <p className="text-muted-foreground">Highly qualified team (architect engineer lawyer gdca)</p>
                 </div>
               </div>
-              <div 
+              {/* Item 4 (Was 3) */}
+              <div
                 className={`flex gap-4 transition-all duration-700 ${
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: '300ms' }}
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  4
-                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">4</div>
                 <div>
-                  <h3 className="font-bold mb-2">Timely Delivery</h3>
-                  <p className="text-muted-foreground">
-                    Committed to delivering projects on time, every time
-                  </p>
+                  <h3 className="font-bold mb-2">Quality Assurance</h3>
+                  <p className="text-muted-foreground">Rigorous quality control at every stage of construction</p>
                 </div>
               </div>
-              <div 
+              {/* Item 5 (Was 4) */}
+              <div
                 className={`flex gap-4 transition-all duration-700 ${
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
                 style={{ transitionDelay: '400ms' }}
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  5
-                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">5</div>
                 <div>
-                  <h3 className="font-bold mb-2">Transparent Process</h3>
-                  <p className="text-muted-foreground">
-                    Clear communication and regular updates throughout the project
-                  </p>
+                  <h3 className="font-bold mb-2">Timely Delivery</h3>
+                  <p className="text-muted-foreground">Committed to delivering projects on time, every time</p>
                 </div>
               </div>
-              <div 
-                className={`flex gap-4 transition-all duration-700 ${
+              {/* Item 6 (Was 5) */}
+              <div
+                className={`flex gap-4 transition-all duration-700 ${ // Removed centering/span classes
                   whyChooseUsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
                 }`}
-                style={{ transitionDelay: '500ms' }}
+                style={{ transitionDelay: '500ms' }} // Updated delay
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                  6
-                </div>
-                <div>
-                  <h3 className="font-bold mb-2">Sustainable Practices</h3>
-                  <p className="text-muted-foreground">
-                    Environmentally conscious construction methods and materials
-                  </p>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">6</div>
+                <div> {/* Removed width constraint div */}
+                  <h3 className="font-bold mb-2">Transparent Process</h3>
+                  <p className="text-muted-foreground">Clear communication and regular updates throughout the project</p>
                 </div>
               </div>
             </div>
+            {/* -------------------- */}
           </div>
         </div>
       </section>
@@ -242,3 +214,4 @@ const About = () => {
 };
 
 export default About;
+

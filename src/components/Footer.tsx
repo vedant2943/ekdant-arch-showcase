@@ -12,7 +12,7 @@ const Footer = () => {
               Ekdant Associates
             </h3>
             <p className="text-muted-foreground text-sm">
-              Commit to Care - Building dreams with excellence and dedication.
+              Commit to Care
             </p>
           </div>
 
