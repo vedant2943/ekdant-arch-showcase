@@ -8,13 +8,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Building2, FileCheck, Scale, HardHat, LineChart, Shield, Users, TrendingUp } from "lucide-react"; // Removed Award, added CheckCircle2
+import { Building2, FileCheck, Scale, HardHat, Shield, Users, TrendingUp } from "lucide-react"; // Removed LineChart, Award
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import heroImage from "@/assets/hero-building.jpg";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+
+// --- START: UPDATED PROJECT IMPORTS ---
+import anandParkImage from "@/assets/Anand park.jpg";
+import amiParkImage from "@/assets/AMI Park.jpg";
+import muktiVaibhavImage from "@/assets/Mukti Vaibhav.jpg";
+// --- END: UPDATED PROJECT IMPORTS ---
 
 const Home = () => {
   const stats = [
@@ -189,11 +192,31 @@ const Home = () => {
   ];
   // ------------------------------------
 
-  const recentProjects = [ // Kept this data as is
-    { id: 1, title: "Luxury Residences", location: "Downtown District", image: project1, category: "Residential" },
-    { id: 2, title: "Corporate Tower", location: "Business Hub", image: project2, category: "Commercial" },
-    { id: 3, title: "Premium Villas", location: "Green Valley", image: project3, category: "Residential" },
+  // --- START: UPDATED RECENT PROJECTS DATA ---
+  const recentProjects = [
+    {
+      id: 3,
+      title: "Anand Park CHS LTD.",
+      location: "Nallasopara (West)",
+      image: anandParkImage,
+      
+    },
+    {
+      id: 8,
+      title: "Ami Park D15 CHS LTD",
+      location: "Nallasopara (West)",
+      image: amiParkImage,
+
+    },
+    {
+      id: 9,
+      title: "Mukti Vaibhav CHS LTD",
+      location: "Nalasopara (west)",
+      image: muktiVaibhavImage,
+  
+    },
   ];
+  // --- END: UPDATED RECENT PROJECTS DATA ---
 
   return (
     <main>
@@ -339,9 +362,7 @@ const Home = () => {
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {project.category}
-                  </div>
+                  
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
@@ -378,4 +399,3 @@ const Home = () => {
 };
 
 export default Home;
-

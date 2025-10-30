@@ -28,7 +28,7 @@ const Team = () => {
       position: "Construction & Revenue Consultant",
       qualification: "B.E. (Civil)",
       bio: "Consultant – Redevelopment/Repairs/Revenue\nSite Execution / Costing",
-      image: team2,
+      image: team1,
       email: "ajit@ekdantassociates.com", // Kept data in case needed later
       linkedin: "#", // Kept data in case needed later
     },
