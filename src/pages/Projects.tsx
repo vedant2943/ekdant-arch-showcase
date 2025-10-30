@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, MapPin, Users } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
-// Existing generic project images (these will now only be used if specified explicitly, or removed if not needed)
+// Existing generic project images
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -12,14 +12,14 @@ import project3 from "@/assets/project-3.jpg";
 // New project-specific imports
 import amiParkImage from "@/assets/AMI Park.jpg";
 import anandParkImage from "@/assets/Anand park.jpg";
-// import ananddam2Image from "@/assets/Ananddam 2.jpg"; // Ananddam 2.jpg not explicitly used, keeping it commented for now
+// import ananddam2Image from "@/assets/Ananddam 2.jpg"; 
 import beasSadanImage from "@/assets/Beas Sadan.jpg";
 import gokhivBalajiImage from "@/assets/Gokhiv Balaji.jpg";
 import jayGaneshKripaImage from "@/assets/Jay Ganesh Kripa.jpg";
 import muktiNarayanImage from "@/assets/Mukti Narayan.jpg";
 import muktiVaibhavImage from "@/assets/Mukti Vaibhav.jpg";
 import namaskarImage from "@/assets/Namaskar.jpg";
-import underConstructionImage from "@/assets/under construction.jpg"; // <--- NEW IMAGE IMPORTED
+import underConstructionImage from "@/assets/under construction.jpg"; 
 
 // Define Project type
 interface Project {
@@ -60,7 +60,7 @@ const ProjectCard = memo(({ project, index, expandedProject, onToggleExpand }: {
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover" // Reverted to object-cover
         />
         <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
           {project.category}
@@ -126,10 +126,13 @@ const Projects = () => {
 
   const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver();
   const { ref: filterRef, hasBeenInView: filterInView } = useIntersectionObserver();
+  
+  const { ref: pipelineRef, hasBeenInView: pipelineInView } = useIntersectionObserver({
+    threshold: 0.1,
+  });
 
-  // Consolidated list of projects for easier management and reordering
   const allProjectsData: Project[] = [
-    // Projects with specific images (listed first as requested)
+    // ... (all 26 of your project objects are here, unchanged) ...
     {
       id: 3,
       title: "Anand Park CHS LTD.",
@@ -240,8 +243,6 @@ const Projects = () => {
         "On-site 1st slab work in process",
       ],
     },
-
-    // Remaining projects, now using "under construction.jpg" as default
     {
       id: 1,
       title: "Chandresh Vaibhav CHS LTD.",
@@ -435,7 +436,7 @@ const Projects = () => {
       category: "Ongoing",
       members: "18",
       image: underConstructionImage, // Now uses under construction
-      status: ["Tendering In Process"],
+      status: ["Tendering InProcess"],
     },
     {
       id: 24,
@@ -535,6 +536,55 @@ const Projects = () => {
                 onToggleExpand={toggleExpand}
               />
             ))}
+
+            {/* --- START: NEW PIPELINE CARD (Matching Layout) --- */}
+            { (filter === 'All' || filter === 'Ongoing') && (
+              <Card // Use the standard Card component
+                ref={pipelineRef}
+                className={`
+                  overflow-hidden border-2 border-transparent
+                  hover:border-primary hover:scale-105
+                  transition-opacity duration-700 ease-out
+                  transition-transform duration-700 ease-out
+                  hover:transition-all hover:duration-200 hover:ease-in-out 
+                  ${pipelineInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}
+                `}
+                // Stagger animation based on its position in the grid
+                style={{ transitionDelay: `${(filteredProjects.length % 3) * 50}ms` }} 
+              >
+                {/* Part 1: Replicate the "Image" area */}
+                <div className="relative h-64 overflow-hidden bg-secondary flex items-center justify-center">
+                  <h3 className="text-2xl font-bold text-muted-foreground text-center px-4">
+                    +12 Projects
+                    <br />
+                    In Pipeline
+                  </h3>
+                </div>
+                
+                {/* Part 2: Replicate the "Content" area for matching height */}
+                <CardContent className="p-6">
+                  {/* Invisible placeholders to match the height */}
+                  <div className="flex items-center gap-2 text-muted-foreground mb-4 opacity-0">
+                    <MapPin size={16} />
+                    <p className="text-sm">Location</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground mb-4 opacity-0">
+                    <Users size={16} />
+                    <p className="text-sm">Members</p>
+                  </div>
+                  {/* --- THIS BUTTON IS NOW REMOVED --- */}
+                  {/*
+                  <Button variant="outline" className="w-full mb-4 opacity-0" disabled>
+                    View Status
+                  </Button>
+                  */}
+                  {/* --- ADDING A SPACER TO ACCOUNT FOR THE REMOVED BUTTON'S MARGIN --- */}
+                  <div className="w-full mb-4"></div>
+                </CardContent>
+              </Card>
+            )}
+            {/* --- END: NEW PIPELINE CARD --- */}
+
           </div>
         </div>
       </section>
