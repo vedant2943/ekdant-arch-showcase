@@ -8,10 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Building2, FileCheck, Scale, HardHat, Shield, Users, TrendingUp } from "lucide-react"; // Removed LineChart, Award
+import { Building2, FileCheck, Scale, HardHat, Shield, Users, TrendingUp } from "lucide-react"; 
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import heroImage from "@/assets/hero-building.jpg";
+
+// --- START: NEW SLIDER IMPORT ---
+import MobileHeroSlider from "@/components/MobileHeroSlider.tsx";
+// --- END: NEW SLIDER IMPORT ---
 
 // --- START: UPDATED PROJECT IMPORTS ---
 import anandParkImage from "@/assets/Anand park.jpg";
@@ -95,7 +99,7 @@ const Home = () => {
         },
         {
           phaseTitle: "Phase II – Survey & Demarcation",
-          phaseDescription: "Our experts coordinate with Revenue and TILR departments to carry out land surveys, boundary verification, and demarcation in accordance with government norms. We ensure precise measurement and mapping of property boundaries using advanced survey methods, resolving any overlap or encroachment issues effectively.",
+          phaseDescription: "Our experts coordinate with Revenue and TILR departments to carry out land surveys, boundary verification, and demarcation in accordance with government norms. We ensure precise measurement and mapping ofproperty boundaries using advanced survey methods, resolving any overlap or encroachment issues effectively.",
         },
         {
           phaseTitle: "Phase III – Liaison & Approvals",
@@ -213,21 +217,28 @@ const Home = () => {
       title: "Mukti Vaibhav CHS LTD",
       location: "Nalasopara (west)",
       image: muktiVaibhavImage,
-  
+ 
     },
   ];
   // --- END: UPDATED RECENT PROJECTS DATA ---
 
   return (
     <main>
-      {/* Hero Section */}
+      {/* --- START: UPDATED HERO SECTION --- */}
       <section className="h-screen w-full pt-20 flex items-center justify-center">
+        {/* Desktop Image: Shown on medium screens and up */}
         <img
           src={heroImage}
           alt="Ekdant Associates - Active Projects"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain hidden md:block"
         />
+        
+        {/* Mobile Slider: Shown on small screens, hidden on medium and up */}
+        <div className="w-full h-full md:hidden">
+          <MobileHeroSlider />
+        </div>
       </section>
+      {/* --- END: UPDATED HERO SECTION --- */}
 
       {/* Stats Section */}
       <section ref={statsRef} className="py-16 bg-secondary">
