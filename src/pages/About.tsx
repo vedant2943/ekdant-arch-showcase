@@ -136,7 +136,10 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">1</div>
                 <div>
                   <h3 className="font-bold mb-2">Comprehensive Solutions</h3>
-                  <p className="text-muted-foreground">We manage your project from feasibility and legal work to construction and handover.</p>
+                  <p className="text-muted-foreground">We handle your project end-to-end 4 from
+initial feasibility studies through legal
+processes, execution management, and final
+handover. One partner for your entire journey.</p>
                 </div>
               </div>
               {/* Item 2 (Was 1) */}
@@ -149,7 +152,11 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">2</div>
                 <div>
                   <h3 className="font-bold mb-2">Proven Track Record</h3>
-                  <p className="text-muted-foreground">7+ years of excellence with over 25 successfully delivered projects</p>
+                  <p className="text-muted-foreground">Seven years of consistent excellence with 25+
+successfully delivered projects and 500+
+satisfied clients. Our portfolio speaks to our
+commitment and capability.
+</p>
                 </div>
               </div>
               {/* Item 3 (Was 2) - Updated Description */}
@@ -162,7 +169,11 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">3</div>
                 <div>
                   <h3 className="font-bold mb-2">Expert Team</h3>
-                  <p className="text-muted-foreground">Highly qualified team (architect engineer lawyer gdca)</p>
+                  <p className="text-muted-foreground">Our multidisciplinary team includes
+experienced Civil Engineers,
+Structural Auditors, Chartered Valuers,
+and Legal Consultants working together
+for your success.</p>
                 </div>
               </div>
               {/* Item 4 (Was 3) */}
@@ -175,7 +186,9 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">4</div>
                 <div>
                   <h3 className="font-bold mb-2">Quality Assurance</h3>
-                  <p className="text-muted-foreground">Rigorous quality control at every stage of construction</p>
+                  <p className="text-muted-foreground">Rigorous quality control protocols and
+compliant material usage at every
+stage ensure lasting value.</p>
                 </div>
               </div>
               {/* Item 5 (Was 4) */}
@@ -188,7 +201,10 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">5</div>
                 <div>
                   <h3 className="font-bold mb-2">Timely Delivery</h3>
-                  <p className="text-muted-foreground">Committed to delivering projects on time, every time</p>
+                  <p className="text-muted-foreground">Project planning built on efficiency,
+clear accountability, and strict
+adherence to timelines.
+</p>
                 </div>
               </div>
               {/* Item 6 (Was 5) */}
@@ -201,7 +217,9 @@ const About = () => {
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">6</div>
                 <div> {/* Removed width constraint div */}
                   <h3 className="font-bold mb-2">Transparent Process</h3>
-                  <p className="text-muted-foreground">Clear communication and regular updates throughout the project</p>
+                  <p className="text-muted-foreground">Clear communication, complete
+financial clarity, and regular updates
+throughout every phase of your project</p>
                 </div>
               </div>
             </div>

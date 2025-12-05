@@ -25,7 +25,7 @@ import muktiVaibhavImage from "@/assets/Mukti Vaibhav.jpg";
 
 const Home = () => {
   const stats = [
-    { icon: Building2, label: "Projects Completed", value: 25, suffix: "+" },
+    { icon: Building2, label: "Managing Projects", value: 25, suffix: "+" },
     { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
     { icon: TrendingUp, label: "Years Experience", value: 7, suffix: "+" },
   ];
