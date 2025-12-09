@@ -11,8 +11,13 @@ import project3 from "@/assets/project-3.jpg";
 
 // New project-specific imports
 import amiParkImage from "@/assets/AMI Park.jpg";
+import AmitPalaceImage from "@/assets/Amit Palace.png";
+import AnandDham2Image from "@/assets/Ananddam 2.jpg";
+import ChitraBhavanImage from "@/assets/Chitra Bhavan.jpg";
+import NewMuktiImage from "@/assets/New Mukti.jpg";
+import ChandreshVaibhavImage from "@/assets/Chandresh Vaibhav.jpg";
+
 import anandParkImage from "@/assets/Anand park.jpg";
-// import ananddam2Image from "@/assets/Ananddam 2.jpg"; 
 import beasSadanImage from "@/assets/Beas Sadan.jpg";
 import gokhivBalajiImage from "@/assets/Gokhiv Balaji.jpg";
 import jayGaneshKripaImage from "@/assets/Jay Ganesh Kripa.jpg";
@@ -133,7 +138,6 @@ const Projects = () => {
   const allProjectsData: Project[] = [
     // ==== PROJECTS WITH SPECIFIC IMAGES FIRST ====
 
-    // Anand Park CHS LTD.
     {
       id: 3,
       title: "Anand Park CHS LTD.",
@@ -150,7 +154,6 @@ const Projects = () => {
       ],
     },
 
-    // Namaskar CHS LTD.
     {
       id: 4,
       title: "Namaskar CHS LTD.",
@@ -166,7 +169,6 @@ const Projects = () => {
       ],
     },
 
-    // Jay Ganesh Kripa CHS LTD.
     {
       id: 7,
       title: "Jay Ganesh Kripa CHS LTD",
@@ -183,7 +185,6 @@ const Projects = () => {
       ],
     },
 
-    // Ami Park D15 CHS LTD.
     {
       id: 8,
       title: "Ami Park D15 CHS LTD",
@@ -198,7 +199,6 @@ const Projects = () => {
       ],
     },
 
-    // Mukti Vaibhav CHS LTD.
     {
       id: 9,
       title: "Mukti Vaibhav CHS LTD",
@@ -213,7 +213,6 @@ const Projects = () => {
       ],
     },
 
-    // Gokhiware Balaji / Shri Krish Niwas CHS LTD.
     {
       id: 12,
       title: "Gokhiware Balaji CHS LTD",
@@ -227,7 +226,6 @@ const Projects = () => {
       ],
     },
 
-    // Mukti Narayan CHS LTD.
     {
       id: 13,
       title: "Mukti Narayan CHS LTD",
@@ -243,7 +241,6 @@ const Projects = () => {
       ],
     },
 
-    // Beas Sadan CHS LTD.
     {
       id: 15,
       title: "Beas Sadan CHS LTD.",
@@ -259,16 +256,54 @@ const Projects = () => {
       ],
     },
 
-    // ==== PROJECTS WITH GENERIC UNDER-CONSTRUCTION IMAGE AFTER ====
+    // ===== 5 CARDS WITH THEIR OWN IMAGES =====
 
-    // Chandresh Vaibhav CHS LTD. (Completed)
+    {
+      id: 29,
+      title: "Amit Palace CHS LTD.",
+      location: "Nallasopara (West)",
+      category: "Ongoing",
+      members: "32",
+      image: AmitPalaceImage,
+      status: [
+        "Developer selection in process.",
+        "Project details will be updated soon.",
+      ],
+    },
+    {
+      id: 30,
+      title: "Anand dham 2 CHS LTD.",
+      location: "Vasai (West)",
+      category: "Ongoing",
+      members: "11",
+      image: AnandDham2Image,
+      status: [
+        "Society registration completed.",
+        "Redevelopment proposal under discussion.",
+      ],
+    },
+    {
+      id: 32,
+      title: "New Mukti CHS LTD.",
+      location: "Nallasopara (West)",
+      category: "Completed",
+      members: "12",
+      image: NewMuktiImage,
+      status: [
+        "Initial feasibility study completed.",
+        "Further approvals in process.",
+      ],
+    },
+
+    // ==== PROJECTS WITH GENERIC / OTHER IMAGES AFTER ====
+
     {
       id: 1,
       title: "Chandresh Vaibhav CHS LTD.",
       location: "Nallasopara (East)",
       category: "Completed",
       members: "116",
-      image: underConstructionImage,
+      image: ChandreshVaibhavImage,
       status: [
         'Developer "M/S Ashoka Buildcon" Selected Through Tender Process.',
         'Full FSI & TDR CC "2,04,645 Sq. Ft." "G + 14" In Received In The Name Of Society In Yr 2021-22.',
@@ -277,14 +312,13 @@ const Projects = () => {
       ],
     },
 
-    // Chitra Bhawan CHS LTD.
     {
       id: 6,
       title: "Chitra Bhawan CHS LTD",
-      location: "Vasai (West)",
+      location: "Vasai (East)",
       category: "Ongoing",
       members: "15",
-      image: underConstructionImage,
+      image: ChitraBhavanImage,
       status: [
         'Developer "M/S Mahashraman" Selected Through Tender Process.',
         'Full FSI & TDR CC "G + 18" In Received In The Name Of Society Yr 2023.',
@@ -293,7 +327,6 @@ const Projects = () => {
       ],
     },
 
-    // Sai Palace CHS LTD.
     {
       id: 11,
       title: "Sai Palace CHS LTD.",
@@ -307,7 +340,6 @@ const Projects = () => {
       ],
     },
 
-    // New Matruchhaya CHS LTD.
     {
       id: 14,
       title: "New Matruchhaya CHS LTD",
@@ -323,7 +355,6 @@ const Projects = () => {
       ],
     },
 
-    // Paras CHS LTD.
     {
       id: 16,
       title: "Paras CHS LTD.",
@@ -339,10 +370,9 @@ const Projects = () => {
       ],
     },
 
-    // Surykirti Old & New CHS LTD.
     {
       id: 17,
-      title: "Surykirti Old & New CHS LTD",
+      title: "Surykirti CHS LTD",
       location: "Nallasopara (East)",
       category: "Ongoing",
       members: "126",
@@ -354,7 +384,6 @@ const Projects = () => {
       ],
     },
 
-    // Chandresh Vandan CHS LTD.
     {
       id: 18,
       title: "Chandresh Vandan CHS LTD",
@@ -369,7 +398,6 @@ const Projects = () => {
       ],
     },
 
-    // Sneha Deep CHS LTD.
     {
       id: 19,
       title: "Sneha Deep CHS LTD.",
@@ -384,7 +412,6 @@ const Projects = () => {
       ],
     },
 
-    // New Lotus CHS LTD.
     {
       id: 20,
       title: "New Lotus CHS LTD.",
@@ -399,7 +426,6 @@ const Projects = () => {
       ],
     },
 
-    // New Matruashish CHS LTD.
     {
       id: 21,
       title: "New Matruashish CHS LTD.",
@@ -414,7 +440,6 @@ const Projects = () => {
       ],
     },
 
-    // Sham CHS LTD.
     {
       id: 22,
       title: "Sham CHS LTD",
@@ -429,7 +454,6 @@ const Projects = () => {
       ],
     },
 
-    // Guru Smruti CHS LTD.
     {
       id: 23,
       title: "Guru Smruti CHS LTD",
@@ -440,7 +464,6 @@ const Projects = () => {
       status: ["Tendering In Process."],
     },
 
-    // Chandramukhi CHS LTD.
     {
       id: 24,
       title: "Chandramukhi CHS LTD",
@@ -451,7 +474,6 @@ const Projects = () => {
       status: ["Tendering In Process."],
     },
 
-    // Rajniketan CHS LTD.
     {
       id: 25,
       title: "Rajniketan CHS LTD",
@@ -462,7 +484,6 @@ const Projects = () => {
       status: ["Tendering In Process."],
     },
 
-    // Bhakti Pooja CHS LTD.
     {
       id: 26,
       title: "Bhakti Pooja CHS LTD",
@@ -473,7 +494,6 @@ const Projects = () => {
       status: ["Tendering In Process."],
     },
 
-    // Neminath CHS LTD.
     {
       id: 27,
       title: "Neminath CHS LTD",
@@ -487,10 +507,68 @@ const Projects = () => {
       ],
     },
 
-    // Festival CHS LTD (Type A, C & E)
+       // ===== ADDITIONAL NEW PROJECT CARDS =====
+
     {
-      id: 28,
-      title: "Festival CHS LTD (Type A, C & E)",
+      id: 33,
+      title: "Garden CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Ongoing",
+      members: "70",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+    {
+      id: 34,
+      title: "Cosmos Residency CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Ongoing",
+      members: "11",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+    {
+      id: 35,
+      title: "Souparnika CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Ongoing",
+      members: "28",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+    {
+      id: 36,
+      title: "Achole Ashiyana CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Ongoing",
+      members: "38",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+    {
+      id: 37,
+      title: "Mahendra Palace CHS LTD.",
+      location: "Vasai (West)",
+      category: "Ongoing",
+      members: "52",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+    {
+      id: 38,
+      title: "New Suryakirti CHS LTD.",
+      location: "Nallasopara (East)",
+      category: "Ongoing",
+      members: "126",
+      image: underConstructionImage,
+      status: ["Project details will be updated soon."],
+    },
+
+    // ===== FESTIVAL (SPLIT INTO 3 SEPARATE CARDS) =====
+
+    {
+      id: 39,
+      title: "Festival A CHS LTD.",
       location: "Nalasopara (East)",
       category: "Ongoing",
       members: "96",
@@ -500,6 +578,31 @@ const Projects = () => {
         "DA POA In Process.",
       ],
     },
+    {
+      id: 40,
+      title: "Festival C CHS LTD.",
+      location: "Nalasopara (East)",
+      category: "Ongoing",
+      members: "96",
+      image: underConstructionImage,
+      status: [
+        'Developer "M/S Realtech Infra" Selected Through Tender Process.',
+        "DA POA In Process.",
+      ],
+    },
+    {
+      id: 41,
+      title: "Festival E CHS LTD.",
+      location: "Nalasopara (East)",
+      category: "Ongoing",
+      members: "96",
+      image: underConstructionImage,
+      status: [
+        'Developer "M/S Realtech Infra" Selected Through Tender Process.',
+        "DA POA In Process.",
+      ],
+    },
+
   ];
 
   const projects = allProjectsData;
@@ -568,7 +671,6 @@ const Projects = () => {
               />
             ))}
 
-            {/* +12 Projects In Pipeline Card */}
             {(filter === "All" || filter === "Ongoing") && (
               <Card
                 ref={pipelineRef}
