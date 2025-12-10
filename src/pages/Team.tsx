@@ -7,7 +7,8 @@ import team3 from "@/assets/team-3.jpg";
 
 const Team = () => {
   // Hooks for scroll animations
-  const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver();
+  const { ref: headerRef, hasBeenInView: headerInView } =
+    useIntersectionObserver();
   // Removed teamGridRef as individual cards now handle their own animation trigger
   const { ref: ctaRef, hasBeenInView: ctaInView } = useIntersectionObserver();
 
@@ -28,7 +29,7 @@ const Team = () => {
       position: "Construction & Revenue Consultant",
       qualification: "B.E. (Civil)",
       bio: "B.E. (Civil) with extensive expertise in redevelopment, repairs, and revenue works. Specializes in site execution management and detailed project costing with hands-on field experience.",
-      image: team1,
+      image: team2,
       email: "ajit@ekdantassociates.com", // Kept data in case needed later
       linkedin: "#", // Kept data in case needed later
     },
@@ -51,27 +52,30 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div
             className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              headerInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
             }`}
           >
             <h1 className="text-5xl font-display font-bold mb-6 text-primary">
               Meet Our Team
             </h1>
             <p className="text-xl text-muted-foreground">
-              The passionate professionals behind Ekdant Associates' success
+              The passionate professionals behind Ekdant Associates&apos;
+              success
             </p>
           </div>
         </div>
       </section>
 
       {/* Team Grid */}
-      {/* Removed teamGridRef from section tag */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => {
               // Individual Card Animation Hook
-              const { ref: cardRef, hasBeenInView: cardInView } = useIntersectionObserver();
+              const { ref: cardRef, hasBeenInView: cardInView } =
+                useIntersectionObserver();
 
               return (
                 <Card
@@ -84,17 +88,21 @@ const Team = () => {
                               hover:transition-transform hover:duration-300 hover:ease-in-out
                               hover:transition-shadow hover:duration-300 hover:ease-in-out
                               hover:transition-colors hover:duration-300 hover:ease-in-out ${
-                    cardInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-                  }`}
+                                cardInView
+                                  ? "opacity-100 translate-y-0"
+                                  : "opacity-0 translate-y-20"
+                              }`}
                   style={{ transitionDelay: `${index * 150}ms` }} // Staggered delay for cards
                 >
-                  <div className="relative h-80 overflow-hidden">
+                  {/* 🔧 Image container adjusted to avoid head cropping */}
+                  <div className="relative h-[420px] overflow-hidden">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
+
                   <CardContent className="p-6">
                     <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
                     <p className="text-primary font-semibold mb-1">
@@ -106,9 +114,7 @@ const Team = () => {
                     <p className="text-muted-foreground mb-6 text-sm whitespace-pre-line leading-relaxed">
                       {member.bio}
                     </p>
-                    {/* --- REMOVED SOCIAL LINKS DIV --- */}
-                    {/* <div className="flex gap-4"> ... links were here ... </div> */}
-                    {/* -------------------------------- */}
+                    {/* social links kept removed for now */}
                   </CardContent>
                 </Card>
               );
@@ -122,26 +128,26 @@ const Team = () => {
         <div className="container mx-auto px-4">
           <div
             className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
-              ctaInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              ctaInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
             }`}
           >
             <h2 className="text-3xl font-display font-bold mb-4">
               Join Our Team
             </h2>
             <p className="text-muted-foreground mb-8">
-              We're always looking for talented individuals who share our
-              passion for excellence. If you're interested in joining the Ekdant
-              Associates family, we'd love to hear from you.
+              We&apos;re always looking for talented individuals who share our
+              passion for excellence. If you&apos;re interested in joining the
+              Ekdant Associates family, we&apos;d love to hear from you.
             </p>
-            {/* --- UPDATED EMAIL LINK TO USE CORRECT ADDRESS --- */}
             <a
-              href="mailto:ekdant_associates@hotmail.com" // Use the actual email from contactInfo
+              href="mailto:ekdant_associates@hotmail.com"
               className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
             >
               <Mail size={20} />
               ekdant_associates@hotmail.com
             </a>
-            {/* ----------------------------------------------- */}
           </div>
         </div>
       </section>
@@ -150,4 +156,3 @@ const Team = () => {
 };
 
 export default Team;
-

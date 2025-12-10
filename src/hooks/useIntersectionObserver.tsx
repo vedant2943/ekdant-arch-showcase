@@ -1,31 +1,50 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-export const useIntersectionObserver = (options?: IntersectionObserverInit) => {
-  const [isInView, setIsInView] = useState(false);
+interface UseIntersectionObserverOptions extends IntersectionObserverInit {
+  /**
+   * If true (default), once the element has been in view,
+   * we keep hasBeenInView = true and stop observing.
+   * If false, it will toggle based on visibility.
+   */
+  once?: boolean;
+}
+
+export const useIntersectionObserver = (
+  {
+    threshold = 0.1,
+    root = null,
+    rootMargin = "0px",
+    once = true,
+  }: UseIntersectionObserverOptions = {}
+): { ref: React.MutableRefObject<any>; hasBeenInView: boolean } => {
+  // 👇 use any so it can be attached to ANY JSX element without TS whining
+  const ref = useRef<any>(null);
   const [hasBeenInView, setHasBeenInView] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        setHasBeenInView(true);
-      } else {
-        setIsInView(false);
-      }
-    }, { threshold: 0.1, ...options });
+    const node = ref.current;
+    if (!node) return;
 
-    const currentRef = ref.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHasBeenInView(true);
+            if (once) observer.unobserve(entry.target);
+          } else if (!once) {
+            setHasBeenInView(false);
+          }
+        });
+      },
+      { threshold, root, rootMargin }
+    );
+
+    observer.observe(node);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
+      observer.disconnect();
     };
-  }, [options]);
+  }, [threshold, root, rootMargin, once]);
 
-  return { ref, isInView, hasBeenInView };
+  return { ref, hasBeenInView };
 };

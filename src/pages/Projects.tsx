@@ -4,28 +4,27 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, MapPin, Users } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
-// Existing generic project images (currently unused, can remove if you want)
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-
-// New project-specific imports
-import amiParkImage from "@/assets/AMI Park.jpg";
-import AmitPalaceImage from "@/assets/Amit Palace.png";
-import AnandDham2Image from "@/assets/Ananddam 2.jpg";
-import ChitraBhavanImage from "@/assets/Chitra Bhavan.jpg";
-import NewMuktiImage from "@/assets/New Mukti.jpg";
-import ChandreshVaibhavImage from "@/assets/Chandresh Vaibhav.jpg";
-
+// --------------------------------------
+// IMAGE IMPORTS (KEEP YOUR ORIGINAL ONES)
+// --------------------------------------
 import anandParkImage from "@/assets/Anand park.jpg";
-import beasSadanImage from "@/assets/Beas Sadan.jpg";
-import gokhivBalajiImage from "@/assets/Gokhiv Balaji.jpg";
-import jayGaneshKripaImage from "@/assets/Jay Ganesh Kripa.jpg";
-import muktiNarayanImage from "@/assets/Mukti Narayan.jpg";
+import amiParkImage from "@/assets/AMI Park.jpg";
 import muktiVaibhavImage from "@/assets/Mukti Vaibhav.jpg";
 import namaskarImage from "@/assets/Namaskar.jpg";
+import jayGaneshKripaImage from "@/assets/Jay Ganesh Kripa.jpg";
+import gokhivBalajiImage from "@/assets/Gokhiv Balaji.jpg";
+import beasSadanImage from "@/assets/Beas Sadan.jpg";
+import muktiNarayanImage from "@/assets/Mukti Narayan.jpg";
+import AnandDham2Image from "@/assets/Ananddam 2.jpg";
+import AmitPalaceImage from "@/assets/Amit Palace.png";
+import NewMuktiImage from "@/assets/New Mukti.jpg";
+import ChandreshVaibhavImage from "@/assets/Chandresh Vaibhav.jpg";
+import ChitraBhavanImage from "@/assets/Chitra Bhavan.jpg";
 import underConstructionImage from "@/assets/under construction.jpg";
 
+// --------------------------------------
+// PROJECT INTERFACE
+// --------------------------------------
 interface Project {
   id: number;
   title: string;
@@ -36,34 +35,46 @@ interface Project {
   status: string[];
 }
 
+// --------------------------------------
+// PROJECT CARD WITH DIRECTION ANIMATION
+// --------------------------------------
 const ProjectCard = memo(
   ({
     project,
     index,
+    direction,
     expandedProject,
     onToggleExpand,
   }: {
     project: Project;
     index: number;
+    direction: "left" | "center" | "right";
     expandedProject: number | null;
     onToggleExpand: (id: number) => void;
   }) => {
     const { ref: cardRef, hasBeenInView: cardInView } = useIntersectionObserver({
-      threshold: 0.1,
+      threshold: 0.2,
     });
 
     return (
       <Card
         ref={cardRef}
         key={project.id}
-        className={`overflow-hidden border-2 border-transparent
-                  hover:border-primary hover:scale-105
-                  transition-opacity duration-700 ease-out
-                  transition-transform duration-700 ease-out
-                  hover:transition-all hover:duration-200 hover:ease-in-out ${
-                    cardInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-                  }`}
-        style={{ transitionDelay: `${index * 50}ms` }}
+        className={`
+          overflow-hidden border-2 border-transparent
+          hover:border-primary hover:scale-105
+          transition-all duration-700 ease-out
+          ${
+            !cardInView
+              ? direction === "left"
+                ? "opacity-0 -translate-x-20"
+                : direction === "right"
+                ? "opacity-0 translate-x-20"
+                : "opacity-0 translate-y-20"
+              : "opacity-100 translate-x-0 translate-y-0"
+          }
+        `}
+        style={{ transitionDelay: `${index * 40}ms` }}
       >
         <div className="relative h-64 overflow-hidden">
           <img
@@ -75,12 +86,15 @@ const ProjectCard = memo(
             {project.category}
           </div>
         </div>
+
         <CardContent className="p-6">
           <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-          <div className="flex items-center gap-2 text-muted-foreground mb-4">
+
+          <div className="flex items-center gap-2 text-muted-foreground mb-2">
             <MapPin size={16} />
             <p className="text-sm">{project.location}</p>
           </div>
+
           <div className="flex items-center gap-2 text-muted-foreground mb-4">
             <Users size={16} />
             <p className="text-sm">Number of Members: {project.members}</p>
@@ -88,7 +102,7 @@ const ProjectCard = memo(
 
           <Button
             variant="outline"
-            className="w-full mb-4"
+            className="w-full"
             onClick={() => onToggleExpand(project.id)}
           >
             {expandedProject === project.id ? (
@@ -123,486 +137,493 @@ const ProjectCard = memo(
   }
 );
 
+// --------------------------------------
+// PROJECTS PAGE
+// --------------------------------------
 const Projects = () => {
   const [filter, setFilter] = useState("All");
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
-  const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver();
-  const { ref: filterRef, hasBeenInView: filterInView } = useIntersectionObserver();
+  const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+  const { ref: filterRef, hasBeenInView: filterInView } = useIntersectionObserver({
+    threshold: 0.4,
+  });
 
   const { ref: pipelineRef, hasBeenInView: pipelineInView } =
     useIntersectionObserver({
       threshold: 0.1,
     });
 
+  // --------------------------------------
+  // INSERT YOUR FULL PROJECT LIST HERE
+  // --------------------------------------
   const allProjectsData: Project[] = [
-    // ==== PROJECTS WITH SPECIFIC IMAGES FIRST ====
+    {
+id: 3,
+title: "Anand Park CHS LTD.",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "69",
+image: anandParkImage,
+status: [
+'Developer "M/S Dhanlaxmi Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "144668 Sq. Ft." "G + 21" In Received In The Name Of Society Yr 2023.',
+"Society Members Flats & Shops Allotment PAAA Completed.",
+"On-Site 22nd Slab Completed.",
+"Finishing Work In Process.",
+],
+},
 
-    {
-      id: 3,
-      title: "Anand Park CHS LTD.",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "69",
-      image: anandParkImage,
-      status: [
-        'Developer "M/S Dhanlaxmi Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "144668 Sq. Ft." "G + 21" In Received In The Name Of Society Yr 2023.',
-        "Society Members Flats & Shops Allotment PAAA Completed.",
-        "On-Site 22nd Slab Completed.",
-        "Finishing Work In Process.",
-      ],
-    },
+{
+id: 4,
+title: "Namaskar CHS LTD.",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "27",
+image: namaskarImage,
+status: [
+'Developer "M/S Dhanlaxmi Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 18" In Received In The Name Of Society Yr 2024.',
+"Society Members Flats Allotment PAAA Completed.",
+"On-Site 6th Slab Work In Process.",
+],
+},
 
-    {
-      id: 4,
-      title: "Namaskar CHS LTD.",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "27",
-      image: namaskarImage,
-      status: [
-        'Developer "M/S Dhanlaxmi Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 18" In Received In The Name Of Society Yr 2024.',
-        "Society Members Flats Allotment PAAA Completed.",
-        "On-Site 6th Slab Work In Process.",
-      ],
-    },
+{
+id: 7,
+title: "Jay Ganesh Kripa CHS LTD",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "38",
+image: jayGaneshKripaImage,
+status: [
+'Developer "M/S Sai Kiran Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 15" In Received In The Name Of Society Yr 2024.',
+"Society Members Flats Allotment Completed & PAAA Ongoing.",
+"On-Site RCC Work Completed.",
+"Finishing Work In Process.",
+],
+},
 
-    {
-      id: 7,
-      title: "Jay Ganesh Kripa CHS LTD",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "38",
-      image: jayGaneshKripaImage,
-      status: [
-        'Developer "M/S Sai Kiran Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 15" In Received In The Name Of Society Yr 2024.',
-        "Society Members Flats Allotment Completed & PAAA Ongoing.",
-        "On-Site RCC Work Completed.",
-        "Finishing Work In Process.",
-      ],
-    },
+{
+id: 8,
+title: "Ami Park D15 CHS LTD",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "48 (Tenants)",
+image: amiParkImage,
+status: [
+'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 7" In Received In The Name Of Society Yr 2025.',
+"On Site Piling Work In Process.",
+],
+},
 
-    {
-      id: 8,
-      title: "Ami Park D15 CHS LTD",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "48 (Tenants)",
-      image: amiParkImage,
-      status: [
-        'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 7" In Received In The Name Of Society Yr 2025.',
-        "On Site Piling Work In Process.",
-      ],
-    },
+{
+id: 9,
+title: "Mukti Vaibhav CHS LTD",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "48",
+image: muktiVaibhavImage,
+status: [
+'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 7" In Received In The Name Of Society Yr 2025.',
+"On Site Pile Cap Work In Process.",
+],
+},
 
-    {
-      id: 9,
-      title: "Mukti Vaibhav CHS LTD",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "48",
-      image: muktiVaibhavImage,
-      status: [
-        'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 7" In Received In The Name Of Society Yr 2025.',
-        "On Site Pile Cap Work In Process.",
-      ],
-    },
+{
+id: 12,
+title: "Gokhiware Balaji CHS LTD",
+location: "Bhandup (East)",
+category: "Ongoing",
+members: "9",
+image: gokhivBalajiImage,
+status: [
+'Developer "M/S Guru Krupa Developers" Selected Through Tender Process.',
+"Section 79a In Process.",
+],
+},
 
-    {
-      id: 12,
-      title: "Gokhiware Balaji CHS LTD",
-      location: "Bhandup (East)",
-      category: "Ongoing",
-      members: "9",
-      image: gokhivBalajiImage,
-      status: [
-        'Developer "M/S Guru Krupa Developers" Selected Through Tender Process.',
-        "Section 79a In Process.",
-      ],
-    },
+{
+id: 13,
+title: "Mukti Narayan CHS LTD",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "27",
+image: muktiNarayanImage,
+status: [
+"Plot Area : 981 Sq. Mtr.",
+'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 12" In Received In The Name Of Society Yr 2025.',
+"On Site 1st Slab Work In Process.",
+],
+},
 
-    {
-      id: 13,
-      title: "Mukti Narayan CHS LTD",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "27",
-      image: muktiNarayanImage,
-      status: [
-        "Plot Area : 981 Sq. Mtr.",
-        'Developer "M/S Jivdani Krupa Builders & Developers" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 12" In Received In The Name Of Society Yr 2025.',
-        "On Site 1st Slab Work In Process.",
-      ],
-    },
+{
+id: 15,
+title: "Beas Sadan CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "53",
+image: beasSadanImage,
+status: [
+'Developer "M/S Ashoka Reality" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 21" In The Name Of Society Received Yr 2024.',
+"Society Members Flats Allotment & PAAA Ongoing.",
+"1st Slab Work In Progress.",
+],
+},
 
-    {
-      id: 15,
-      title: "Beas Sadan CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "53",
-      image: beasSadanImage,
-      status: [
-        'Developer "M/S Ashoka Reality" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 21" In The Name Of Society Received Yr 2024.',
-        "Society Members Flats Allotment & PAAA Ongoing.",
-        "1st Slab Work In Progress.",
-      ],
-    },
+// ===== 5 CARDS WITH THEIR OWN IMAGES =====
 
-    // ===== 5 CARDS WITH THEIR OWN IMAGES =====
+{
+id: 29,
+title: "Amit Palace CHS LTD.",
+location: "Nallasopara (West)",
+category: "Ongoing",
+members: "32",
+image: AmitPalaceImage,
+status: [
+"Developer selection in process.",
+"Project details will be updated soon.",
+],
+},
+{
+id: 30,
+title: "Anand dham 2 CHS LTD.",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "11",
+image: AnandDham2Image,
+status: [
+"Society registration completed.",
+"Redevelopment proposal under discussion.",
+],
+},
+{
+id: 32,
+title: "New Mukti CHS LTD.",
+location: "Nallasopara (West)",
+category: "Completed",
+members: "12",
+image: NewMuktiImage,
+status: [
+"Initial feasibility study completed.",
+"Further approvals in process.",
+],
+},
 
-    {
-      id: 29,
-      title: "Amit Palace CHS LTD.",
-      location: "Nallasopara (West)",
-      category: "Ongoing",
-      members: "32",
-      image: AmitPalaceImage,
-      status: [
-        "Developer selection in process.",
-        "Project details will be updated soon.",
-      ],
-    },
-    {
-      id: 30,
-      title: "Anand dham 2 CHS LTD.",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "11",
-      image: AnandDham2Image,
-      status: [
-        "Society registration completed.",
-        "Redevelopment proposal under discussion.",
-      ],
-    },
-    {
-      id: 32,
-      title: "New Mukti CHS LTD.",
-      location: "Nallasopara (West)",
-      category: "Completed",
-      members: "12",
-      image: NewMuktiImage,
-      status: [
-        "Initial feasibility study completed.",
-        "Further approvals in process.",
-      ],
-    },
+// ==== PROJECTS WITH GENERIC / OTHER IMAGES AFTER ====
 
-    // ==== PROJECTS WITH GENERIC / OTHER IMAGES AFTER ====
+{
+id: 1,
+title: "Chandresh Vaibhav CHS LTD.",
+location: "Nallasopara (East)",
+category: "Completed",
+members: "116",
+image: ChandreshVaibhavImage,
+status: [
+'Developer "M/S Ashoka Buildcon" Selected Through Tender Process.',
+'Full FSI & TDR CC "2,04,645 Sq. Ft." "G + 14" In Received In The Name Of Society In Yr 2021-22.',
+"Society Members Flats & Shops Allotment PAAA Completed.",
+"OC Received Yr 2024.",
+],
+},
 
-    {
-      id: 1,
-      title: "Chandresh Vaibhav CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Completed",
-      members: "116",
-      image: ChandreshVaibhavImage,
-      status: [
-        'Developer "M/S Ashoka Buildcon" Selected Through Tender Process.',
-        'Full FSI & TDR CC "2,04,645 Sq. Ft." "G + 14" In Received In The Name Of Society In Yr 2021-22.',
-        "Society Members Flats & Shops Allotment PAAA Completed.",
-        "OC Received Yr 2024.",
-      ],
-    },
+{
+id: 6,
+title: "Chitra Bhawan CHS LTD",
+location: "Vasai (East)",
+category: "Ongoing",
+members: "15",
+image: ChitraBhavanImage,
+status: [
+'Developer "M/S Mahashraman" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 18" In Received In The Name Of Society Yr 2023.',
+"Society Members Flats Allotment PAAA Completed.",
+"Awaiting For OC.",
+],
+},
 
-    {
-      id: 6,
-      title: "Chitra Bhawan CHS LTD",
-      location: "Vasai (East)",
-      category: "Ongoing",
-      members: "15",
-      image: ChitraBhavanImage,
-      status: [
-        'Developer "M/S Mahashraman" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 18" In Received In The Name Of Society Yr 2023.',
-        "Society Members Flats Allotment PAAA Completed.",
-        "Awaiting For OC.",
-      ],
-    },
+{
+id: 11,
+title: "Sai Palace CHS LTD.",
+location: "Bhaynadar (East)",
+category: "Ongoing",
+members: "64",
+image: underConstructionImage,
+status: [
+'Developer "M/S Bhadrankar Enterprises LLP" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 21" In The Name Of Society In Process.',
+],
+},
 
-    {
-      id: 11,
-      title: "Sai Palace CHS LTD.",
-      location: "Bhaynadar (East)",
-      category: "Ongoing",
-      members: "64",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Bhadrankar Enterprises LLP" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 21" In The Name Of Society In Process.',
-      ],
-    },
+{
+id: 14,
+title: "New Matruchhaya CHS LTD",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "53",
+image: underConstructionImage,
+status: [
+'Developer "M/S Om Balaji" Selected Through Tender Process.',
+'Full FSI & TDR CC "G + 29" In The Name Of Society Received Yr 2024.',
+"Society Members Flats Allotment Completed & PAAA Ongoing.",
+"On-Site Piling Work In Process.",
+],
+},
 
-    {
-      id: 14,
-      title: "New Matruchhaya CHS LTD",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "53",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Om Balaji" Selected Through Tender Process.',
-        'Full FSI & TDR CC "G + 29" In The Name Of Society Received Yr 2024.',
-        "Society Members Flats Allotment Completed & PAAA Ongoing.",
-        "On-Site Piling Work In Process.",
-      ],
-    },
+{
+id: 16,
+title: "Paras CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "64",
+image: underConstructionImage,
+status: [
+'Developer "M/S Deep Ramkala Developers" Selected Through Tender Process.',
+"DA POA Is Done.",
+'Full FSI & TDR CC "G + 22" In The Name Of Society Received Yr 2024.',
+"On Site Piling Work In Process.",
+],
+},
 
-    {
-      id: 16,
-      title: "Paras CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "64",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Deep Ramkala Developers" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        'Full FSI & TDR CC "G + 22" In The Name Of Society Received Yr 2024.',
-        "On Site Piling Work In Process.",
-      ],
-    },
+{
+id: 17,
+title: "Surykirti Nagar CHS LTD",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "63",
+image: underConstructionImage,
+status: [
+'Developer "M/S Sanskruti Builders & Developers" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",
+],
+},
 
-    {
-      id: 17,
-      title: "Surykirti Nagar CHS LTD",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "63",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Sanskruti Builders & Developers" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "CC In Process.",
-      ],
-    },
+{
+id: 18,
+title: "Chandresh Vandan CHS LTD",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "86",
+image: underConstructionImage,
+status: [
+'Developer "M/S Ashoka Reality" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",
+],
+},
 
-    {
-      id: 18,
-      title: "Chandresh Vandan CHS LTD",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "86",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Ashoka Reality" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "CC In Process.",
-      ],
-    },
+{
+id: 19,
+title: "Sneha Deep CHS LTD.",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "24",
+image: underConstructionImage,
+status: [
+'Developer "M/S Parag Construction" Selected Through Tender Process.',
+"DA POA Is Done.",
+"TILR & PLAN In Process.",
+],
+},
 
-    {
-      id: 19,
-      title: "Sneha Deep CHS LTD.",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "24",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Parag Construction" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "TILR & PLAN In Process.",
-      ],
-    },
+{
+id: 20,
+title: "New Lotus CHS LTD.",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "40",
+image: underConstructionImage,
+status: [
+'Developer "M/S Vinayak Builders & Developers" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",
+],
+},
 
-    {
-      id: 20,
-      title: "New Lotus CHS LTD.",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "40",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Vinayak Builders & Developers" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "CC In Process.",
-      ],
-    },
+{
+id: 21,
+title: "New Matruashish CHS LTD.",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "53",
+image: underConstructionImage,
+status: [
+'Developer "M/S Vinayak Builders & Developers" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",
+],
+},
 
-    {
-      id: 21,
-      title: "New Matruashish CHS LTD.",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "53",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Vinayak Builders & Developers" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "CC In Process.",
-      ],
-    },
+{
+id: 22,
+title: "Sham CHS LTD",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "22",
+image: underConstructionImage,
+status: [
+'Developer "M/S Shree Shakti Infra" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",
+],
+},
 
-    {
-      id: 22,
-      title: "Sham CHS LTD",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "22",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Shree Shakti Infra" Selected Through Tender Process.',
-        "DA POA Is Done.",
-        "CC In Process.",
-      ],
-    },
+{
+id: 23,
+title: "Guru Smruti CHS LTD",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "18",
+image: underConstructionImage,
+status: ["Tendering In Process."],
+},
 
-    {
-      id: 23,
-      title: "Guru Smruti CHS LTD",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "18",
-      image: underConstructionImage,
-      status: ["Tendering In Process."],
-    },
+{
+id: 24,
+title: "Chandramukhi CHS LTD",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "37",
+image: underConstructionImage,
+status: ["Tendering In Process."],
+},
 
-    {
-      id: 24,
-      title: "Chandramukhi CHS LTD",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "37",
-      image: underConstructionImage,
-      status: ["Tendering In Process."],
-    },
+{
+id: 25,
+title: "Rajniketan CHS LTD",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "74",
+image: underConstructionImage,
+status: ["Tendering In Process."],
+},
 
-    {
-      id: 25,
-      title: "Rajniketan CHS LTD",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "74",
-      image: underConstructionImage,
-      status: ["Tendering In Process."],
-    },
+{
+id: 26,
+title: "Bhakti Pooja CHS LTD",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "45",
+image: underConstructionImage,
+status: ["Tendering In Process."],
+},
 
-    {
-      id: 26,
-      title: "Bhakti Pooja CHS LTD",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "45",
-      image: underConstructionImage,
-      status: ["Tendering In Process."],
-    },
+{
+id: 27,
+title: "Neminath CHS LTD",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "128",
+image: underConstructionImage,
+status: [
+'Developer "M/S Dhanraj Infra" Selected Through Tender Process.',
+"DA POA In Process.",
+],
+},
 
-    {
-      id: 27,
-      title: "Neminath CHS LTD",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "128",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Dhanraj Infra" Selected Through Tender Process.',
-        "DA POA In Process.",
-      ],
-    },
+// ===== ADDITIONAL NEW PROJECT CARDS =====
 
-       // ===== ADDITIONAL NEW PROJECT CARDS =====
+{
+id: 33,
+title: "Garden CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "70",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
+{
+id: 34,
+title: "Cosmos Residency CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "11",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
+{
+id: 35,
+title: "Souparnika CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "28",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
+{
+id: 36,
+title: "Achole Ashiyana CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "38",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
+{
+id: 37,
+title: "Mahendra Palace CHS LTD.",
+location: "Vasai (West)",
+category: "Ongoing",
+members: "52",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
+{
+id: 38,
+title: "New Suryakirti CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "63",
+image: underConstructionImage,
+status: ["Project details will be updated soon."],
+},
 
-    {
-      id: 33,
-      title: "Garden CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "70",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
-    {
-      id: 34,
-      title: "Cosmos Residency CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "11",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
-    {
-      id: 35,
-      title: "Souparnika CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "28",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
-    {
-      id: 36,
-      title: "Achole Ashiyana CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "38",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
-    {
-      id: 37,
-      title: "Mahendra Palace CHS LTD.",
-      location: "Vasai (West)",
-      category: "Ongoing",
-      members: "52",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
-    {
-      id: 38,
-      title: "New Suryakirti CHS LTD.",
-      location: "Nallasopara (East)",
-      category: "Ongoing",
-      members: "63",
-      image: underConstructionImage,
-      status: ["Project details will be updated soon."],
-    },
+// ===== FESTIVAL (SPLIT INTO 3 SEPARATE CARDS) =====
 
-    // ===== FESTIVAL (SPLIT INTO 3 SEPARATE CARDS) =====
-
-    {
-      id: 39,
-      title: "Festival A CHS LTD.",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "32",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Realtech Infra" Selected Through Tender Process.',
-        "DA POA In Process.",
-      ],
-    },
-    {
-      id: 40,
-      title: "Festival C CHS LTD.",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "32",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Realtech Infra" Selected Through Tender Process.',
-        "DA POA In Process.",
-      ],
-    },
-    {
-      id: 41,
-      title: "Festival E CHS LTD.",
-      location: "Nalasopara (East)",
-      category: "Ongoing",
-      members: "32",
-      image: underConstructionImage,
-      status: [
-        'Developer "M/S Realtech Infra" Selected Through Tender Process.',
-        "DA POA In Process.",
-      ],
-    },
-
+{
+id: 39,
+title: "Festival A CHS LTD.",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "32",
+image: underConstructionImage,
+status: [
+'Developer "M/S Realtech Infra" Selected Through Tender Process.',
+"DA POA In Process.",
+],
+},
+{
+id: 40,
+title: "Festival C CHS LTD.",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "32",
+image: underConstructionImage,
+status: [
+'Developer "M/S Realtech Infra" Selected Through Tender Process.',
+"DA POA In Process.",
+],
+},
+{
+id: 41,
+title: "Festival E CHS LTD.",
+location: "Nalasopara (East)",
+category: "Ongoing",
+members: "32",
+image: underConstructionImage,
+status: [
+'Developer "M/S Realtech Infra" Selected Through Tender Process.',
+"DA POA In Process.",
+],
+},
   ];
 
   const projects = allProjectsData;
@@ -623,7 +644,7 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div
             className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
-              headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              headerInView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-20"
             }`}
           >
             <h1 className="text-5xl font-display font-bold mb-6 text-primary">
@@ -661,55 +682,47 @@ const Projects = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-                expandedProject={expandedProject}
-                onToggleExpand={toggleExpand}
-              />
-            ))}
 
+            {filteredProjects.map((project, index) => {
+              const pos = index % 3;
+              const direction: "left" | "center" | "right" =
+                pos === 0 ? "left" : pos === 1 ? "center" : "right";
+
+              return (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                  direction={direction}
+                  expandedProject={expandedProject}
+                  onToggleExpand={toggleExpand}
+                />
+              );
+            })}
+
+            {/* Pipeline Box */}
             {(filter === "All" || filter === "Ongoing") && (
               <Card
                 ref={pipelineRef}
                 className={`
                   overflow-hidden border-2 border-transparent
                   hover:border-primary hover:scale-105
-                  transition-opacity duration-700 ease-out
-                  transition-transform duration-700 ease-out
-                  hover:transition-all hover:duration-200 hover:ease-in-out 
+                  transition-all duration-700
                   ${
                     pipelineInView
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-20"
                   }
                 `}
-                style={{
-                  transitionDelay: `${(filteredProjects.length % 3) * 50}ms`,
-                }}
               >
                 <div className="relative h-64 overflow-hidden bg-secondary flex items-center justify-center">
                   <h3 className="text-2xl font-bold text-muted-foreground text-center px-4">
-                    +12 Projects
-                    <br />
-                    In Pipeline
+                    +12 Projects <br /> In Pipeline
                   </h3>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 text-muted-foreground mb-4 opacity-0">
-                    <MapPin size={16} />
-                    <p className="text-sm">Location</p>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground mb-4 opacity-0">
-                    <Users size={16} />
-                    <p className="text-sm">Members</p>
-                  </div>
-                  <div className="w-full mb-4"></div>
-                </CardContent>
               </Card>
             )}
+
           </div>
         </div>
       </section>
