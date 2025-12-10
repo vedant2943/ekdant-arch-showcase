@@ -372,10 +372,10 @@ const Projects = () => {
 
     {
       id: 17,
-      title: "Surykirti CHS LTD",
+      title: "Surykirti Nagar CHS LTD",
       location: "Nallasopara (East)",
       category: "Ongoing",
-      members: "126",
+      members: "63",
       image: underConstructionImage,
       status: [
         'Developer "M/S Sanskruti Builders & Developers" Selected Through Tender Process.',
@@ -559,7 +559,7 @@ const Projects = () => {
       title: "New Suryakirti CHS LTD.",
       location: "Nallasopara (East)",
       category: "Ongoing",
-      members: "126",
+      members: "63",
       image: underConstructionImage,
       status: ["Project details will be updated soon."],
     },
@@ -571,7 +571,7 @@ const Projects = () => {
       title: "Festival A CHS LTD.",
       location: "Nalasopara (East)",
       category: "Ongoing",
-      members: "96",
+      members: "32",
       image: underConstructionImage,
       status: [
         'Developer "M/S Realtech Infra" Selected Through Tender Process.',
@@ -583,7 +583,7 @@ const Projects = () => {
       title: "Festival C CHS LTD.",
       location: "Nalasopara (East)",
       category: "Ongoing",
-      members: "96",
+      members: "32",
       image: underConstructionImage,
       status: [
         'Developer "M/S Realtech Infra" Selected Through Tender Process.',
@@ -595,7 +595,7 @@ const Projects = () => {
       title: "Festival E CHS LTD.",
       location: "Nalasopara (East)",
       category: "Ongoing",
-      members: "96",
+      members: "32",
       image: underConstructionImage,
       status: [
         'Developer "M/S Realtech Infra" Selected Through Tender Process.',

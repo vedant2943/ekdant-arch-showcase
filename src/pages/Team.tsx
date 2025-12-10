@@ -17,7 +17,7 @@ const Team = () => {
       name: "Shekhar Rajaram Dhuri",
       position: "Society Affairs and Legal Aid Consultant",
       qualification: "DDEO, GDCA",
-      bio: "Consultant – Co-operative Housing Societies\nAdvisor – Redevelopment of Buildings of Housing Society",
+      bio: "DDEO, GDCA certified consultant specializing in co-operative housing societies. Expert advisor on redevelopment of housing society buildings with deep knowledge of legal frameworks and member coordination",
       image: team1,
       email: "shekhar@ekdantassociates.com", // Kept data in case needed later
       linkedin: "#", // Kept data in case needed later
@@ -27,7 +27,7 @@ const Team = () => {
       name: "Ajit Suresh Palav",
       position: "Construction & Revenue Consultant",
       qualification: "B.E. (Civil)",
-      bio: "Consultant – Redevelopment/Repairs/Revenue\nSite Execution / Costing",
+      bio: "B.E. (Civil) with extensive expertise in redevelopment, repairs, and revenue works. Specializes in site execution management and detailed project costing with hands-on field experience.",
       image: team1,
       email: "ajit@ekdantassociates.com", // Kept data in case needed later
       linkedin: "#", // Kept data in case needed later
@@ -37,7 +37,7 @@ const Team = () => {
       name: "Chinmay Milind Shinde",
       position: "Structure & Planning Consultant",
       qualification: "B.E. (Civil), M.Tech. (Construction Management)",
-      bio: "Valuer, Chartered Engineer, Structural Auditor",
+      bio: "B.E. (Civil), M.Tech (Construction Management).Registered Valuer, Chartered Engineer, and certified Structural Auditor. Brings advanced technical expertise in structural assessment and project planning.",
       image: team3,
       email: "chinmay@ekdantassociates.com", // Kept data in case needed later
       linkedin: "#", // Kept data in case needed later
