@@ -1,154 +1,82 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Mail } from "lucide-react"; // Mail and Linkedin imports can be removed if not used elsewhere
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
+import { Briefcase, HardHat, Building2 } from "lucide-react";
+
+const teamMembers = [
+  {
+    name: "Shekhar Rajaram Dhuri",
+    role: "Society Affairs & Legal Aid Consultant",
+    qualification: "DDEO, GDCA",
+    icon: Briefcase,
+    description:
+      "DDEO, GDCA certified consultant specializing in co-operative housing societies. Expert advisor on redevelopment of housing society buildings with deep knowledge of legal frameworks and member coordination.",
+  },
+  {
+    name: "Ajit Suresh Palav",
+    role: "Construction & Revenue Consultant",
+    qualification: "B.E. (Civil)",
+    icon: HardHat,
+    description:
+      "B.E. (Civil) with extensive expertise in redevelopment, repairs, and revenue works. Specializes in site execution management and detailed project costing with hands-on field experience.",
+  },
+  {
+    name: "Chinmay Milind Shinde",
+    role: "Structure & Planning Consultant",
+    qualification: "B.E. (Civil), M.Tech (Construction Management)",
+    icon: Building2,
+    description:
+      "Registered Valuer, Chartered Engineer, and certified Structural Auditor. Brings advanced technical expertise in structural assessment and project planning.",
+  },
+];
 
 const Team = () => {
-  // Hooks for scroll animations
-  const { ref: headerRef, hasBeenInView: headerInView } =
-    useIntersectionObserver();
-  // Removed teamGridRef as individual cards now handle their own animation trigger
-  const { ref: ctaRef, hasBeenInView: ctaInView } = useIntersectionObserver();
-
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Shekhar Rajaram Dhuri",
-      position: "Society Affairs and Legal Aid Consultant",
-      qualification: "DDEO, GDCA",
-      bio: "DDEO, GDCA certified consultant specializing in co-operative housing societies. Expert advisor on redevelopment of housing society buildings with deep knowledge of legal frameworks and member coordination",
-      image: team1,
-      email: "shekhar@ekdantassociates.com", // Kept data in case needed later
-      linkedin: "#", // Kept data in case needed later
-    },
-    {
-      id: 2,
-      name: "Ajit Suresh Palav",
-      position: "Construction & Revenue Consultant",
-      qualification: "B.E. (Civil)",
-      bio: "B.E. (Civil) with extensive expertise in redevelopment, repairs, and revenue works. Specializes in site execution management and detailed project costing with hands-on field experience.",
-      image: team2,
-      email: "ajit@ekdantassociates.com", // Kept data in case needed later
-      linkedin: "#", // Kept data in case needed later
-    },
-    {
-      id: 3,
-      name: "Chinmay Milind Shinde",
-      position: "Structure & Planning Consultant",
-      qualification: "B.E. (Civil), M.Tech. (Construction Management)",
-      bio: "B.E. (Civil), M.Tech (Construction Management).Registered Valuer, Chartered Engineer, and certified Structural Auditor. Brings advanced technical expertise in structural assessment and project planning.",
-      image: team3,
-      email: "chinmay@ekdantassociates.com", // Kept data in case needed later
-      linkedin: "#", // Kept data in case needed later
-    },
-  ];
-
   return (
     <main className="pt-20">
       {/* Header */}
-      <section ref={headerRef} className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div
-            className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
-              headerInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
-          >
-            <h1 className="text-5xl font-display font-bold mb-6 text-primary">
-              Meet Our Team
-            </h1>
-            <p className="text-xl text-muted-foreground">
-              The passionate professionals behind Ekdant Associates&apos;
-              success
-            </p>
-          </div>
+      <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h1 className="text-5xl font-display font-bold text-primary mb-6">
+            Core Team
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Meet the experienced professionals behind Ekdant Associates.
+            Our founding partners bring decades of combined expertise in
+            engineering, construction, and consultancy.
+          </p>
         </div>
       </section>
 
-      {/* Team Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => {
-              // Individual Card Animation Hook
-              const { ref: cardRef, hasBeenInView: cardInView } =
-                useIntersectionObserver();
+      {/* Team Cards */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 space-y-10">
+          {teamMembers.map((member, index) => {
+            const Icon = member.icon;
+            return (
+              <div
+                key={index}
+                className="flex flex-col md:flex-row overflow-hidden rounded-lg shadow-lg"
+              >
+                {/* Left Accent Strip */}
+                <div className="flex items-center justify-center bg-gradient-to-b from-red-900 to-red-700 text-yellow-300 p-6 md:w-28">
+                  <Icon size={42} />
+                </div>
 
-              return (
-                <Card
-                  ref={cardRef}
-                  key={member.id}
-                  className={`overflow-hidden border-2 border-transparent
-                              hover:shadow-xl hover:scale-105 hover:border-primary
-                              transition-opacity duration-700 ease-out
-                              transition-transform duration-700 ease-out
-                              hover:transition-transform hover:duration-300 hover:ease-in-out
-                              hover:transition-shadow hover:duration-300 hover:ease-in-out
-                              hover:transition-colors hover:duration-300 hover:ease-in-out ${
-                                cardInView
-                                  ? "opacity-100 translate-y-0"
-                                  : "opacity-0 translate-y-20"
-                              }`}
-                  style={{ transitionDelay: `${index * 150}ms` }} // Staggered delay for cards
-                >
-                  {/* 🔧 Image container adjusted to avoid head cropping */}
-                  <div className="relative h-[420px] overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  </div>
-
-                  <CardContent className="p-6">
-                    <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-primary font-semibold mb-1">
-                      {member.position}
-                    </p>
-                    <p className="text-muted-foreground mb-4 font-medium">
-                      {member.qualification}
-                    </p>
-                    <p className="text-muted-foreground mb-6 text-sm whitespace-pre-line leading-relaxed">
-                      {member.bio}
-                    </p>
-                    {/* social links kept removed for now */}
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section ref={ctaRef} className="py-20 bg-secondary">
-        <div className="container mx-auto px-4">
-          <div
-            className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
-              ctaInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-20"
-            }`}
-          >
-            <h2 className="text-3xl font-display font-bold mb-4">
-              Join Our Team
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              We&apos;re always looking for talented individuals who share our
-              passion for excellence. If you&apos;re interested in joining the
-              Ekdant Associates family, we&apos;d love to hear from you.
-            </p>
-            <a
-              href="mailto:ekdant_associates@hotmail.com"
-              className="inline-flex items-center gap-2 text-primary hover:underline font-semibold"
-            >
-              <Mail size={20} />
-              ekdant_associates@hotmail.com
-            </a>
-          </div>
+                {/* Content */}
+                <div className="flex-1 bg-gradient-to-r from-yellow-100 via-yellow-200 to-orange-200 p-8">
+                  <h2 className="text-2xl font-bold text-red-900 mb-1">
+                    {member.name}
+                  </h2>
+                  <p className="text-red-700 font-semibold mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-sm font-medium text-muted-foreground mb-4">
+                    {member.qualification}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </main>
