@@ -48,7 +48,7 @@ const Home = () => {
   }, [heroImages.length]);
 
   const stats = [
-    { icon: Building2, label: "Managing Projects", value: 25, suffix: "+" },
+    { icon: Building2, label: "Managing Projects", value: 30, suffix: "+" },
     { icon: Users, label: "Happy Clients", value: 500, suffix: "+" },
     { icon: TrendingUp, label: "Years Experience", value: 7, suffix: "+" },
   ];
@@ -441,7 +441,7 @@ const Home = () => {
               Recent Projects
             </h2>
             <p className="text-muted-foreground">
-              Explore our latest completed developments
+              Explore our latest developments
             </p>
           </div>
 

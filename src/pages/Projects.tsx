@@ -141,7 +141,7 @@ const ProjectCard = memo(
 // PROJECTS PAGE
 // --------------------------------------
 const Projects = () => {
-  const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("Ongoing");
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver({
@@ -628,10 +628,11 @@ status: [
 
   const projects = allProjectsData;
 
-  const categories = ["All", "Completed", "Ongoing"];
+  const categories = ["Ongoing", "Completed"];
 
   const filteredProjects =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+    projects.filter((p) => p.category === filter);
+
 
   const toggleExpand = (id: number) => {
     setExpandedProject(expandedProject === id ? null : id);
@@ -701,7 +702,7 @@ status: [
             })}
 
             {/* Pipeline Box */}
-            {(filter === "All" || filter === "Ongoing") && (
+            {filter === "Ongoing" && (
               <Card
                 ref={pipelineRef}
                 className={`
