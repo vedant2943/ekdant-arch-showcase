@@ -243,8 +243,10 @@ category: "Ongoing",
 members: "9",
 image: gokhivBalajiImage,
 status: [
-'Developer "M/S Guru Krupa Developers" Selected Through Tender Process.',
-"Section 79a In Process.",
+"1. Sky line reality  dévelopers.", 
+"2. Full FSI & TDR CC G+7 received in year 2024.",
+"3. PAAA completed.",
+"4. On site RCC work in progress.",
 ],
 },
 
@@ -288,7 +290,7 @@ category: "Ongoing",
 members: "32",
 image: AmitPalaceImage,
 status: [
-"Developer selection in process.",
+"Developer nàme sai siddhi builders & developérs.",
 "Project details will be updated soon.",
 ],
 },
@@ -300,8 +302,10 @@ category: "Ongoing",
 members: "11",
 image: AnandDham2Image,
 status: [
-"Society registration completed.",
-"Redevelopment proposal under discussion.",
+"Dhanraj nirman.",
+'G+7.',
+'On site 5th slab in progress.',
+"Pàaa in progress.",
 ],
 },
 {
@@ -312,8 +316,9 @@ category: "Completed",
 members: "12",
 image: NewMuktiImage,
 status: [
-"Initial feasibility study completed.",
-"Further approvals in process.",
+"1. Developer name sai siddhi builders & dévelopers.",
+"2. Full fsi tdr for g+7 received in year 2022.",
+"3. Oc received year 2024.",
 ],
 },
 
@@ -394,7 +399,7 @@ status: [
 
 {
 id: 17,
-title: "Surykirti Nagar CHS LTD",
+title: "Suryakirti Nagar CHS LTD",
 location: "Nallasopara (East)",
 category: "Ongoing",
 members: "63",
@@ -538,7 +543,11 @@ location: "Nallasopara (East)",
 category: "Ongoing",
 members: "70",
 image: underConstructionImage,
-status: ["Project details will be updated soon."],
+status: ["1. Developér nàme Shree sai realtors.", 
+"2. Full fsi tdr cc received in 2024",
+"3. On site 12th floor slab in process",
+"4. Pàaa in progress.",
+],
 },
 {
 id: 34,
@@ -556,7 +565,7 @@ location: "Nallasopara (East)",
 category: "Ongoing",
 members: "28",
 image: underConstructionImage,
-status: ["Project details will be updated soon."],
+status: ["Ténder dràft finalization in progress"],
 },
 {
 id: 36,
@@ -565,7 +574,7 @@ location: "Nallasopara (East)",
 category: "Ongoing",
 members: "38",
 image: underConstructionImage,
-status: ["Project details will be updated soon."],
+status: ["Téndering in progress"],
 },
 {
 id: 37,
@@ -574,7 +583,7 @@ location: "Vasai (West)",
 category: "Ongoing",
 members: "52",
 image: underConstructionImage,
-status: ["Project details will be updated soon."],
+status: ["Survey work in progress."],
 },
 {
 id: 38,
@@ -583,7 +592,9 @@ location: "Nallasopara (East)",
 category: "Ongoing",
 members: "63",
 image: underConstructionImage,
-status: ["Project details will be updated soon."],
+status: ['Developer "M/S Sanskruti Builders & Developers" Selected Through Tender Process.',
+"DA POA Is Done.",
+"CC In Process.",],
 },
 
 // ===== FESTIVAL (SPLIT INTO 3 SEPARATE CARDS) =====
@@ -624,6 +635,34 @@ status: [
 "DA POA In Process.",
 ],
 },
+{
+  id: 42, // use next available ID
+  title: "Shri Krish Nivas CHS LTD",
+  location: "Bhandup (East)",
+  category: "Ongoing",
+  members: "9",
+  image: underConstructionImage, // keep same placeholder image
+  status: [
+    "Developer “M/s Guru Krupa Developers” selected through Tender Process",
+    "Section 79A in process"
+  ],
+},
+{
+  id: 43,
+  title: "Pancham Park CHS LTD",
+  location: "Nallasopara (East)",
+  category: "Ongoing",
+  members: "45",
+  image: underConstructionImage, // keep same placeholder image
+  status: [
+    "Developer “M/s Jivdani Reality” selected through Tender Process",
+    "Full FSI & TDR CC “67,000 Sq. Ft.” “G + 15” received in the name of society (Yr 2023)",
+    "Society Members Flats Allotment Completed",
+    "Society Members PAAA ongoing",
+    "10th slab work in progress"
+  ],
+},
+
   ];
 
   const projects = allProjectsData;
