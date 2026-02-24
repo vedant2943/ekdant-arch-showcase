@@ -97,7 +97,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Address",
       details:
-        "A1 - 203 Vishwakarma Paradise, Phase 1, Ambadi Road, Vasai Road West",
+        "A1 - 203 Vishwakarma Paradise, Phase 1, Ambadi Road, Vasai Road West 401202",
       link: "https://maps.app.goo.gl/MYdG9mjTB1Hrrngr6",
     },
     {
