@@ -48,7 +48,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin size={16} className="text-primary mt-1 flex-shrink-0" />
                 <span className="text-muted-foreground">
-                  Shop no.3 Gangotri apartment, Sanyukta Nagar, Achole Cross Road, Nallasopara East 401209
+                  A1 - 203 Vishwakarma Paradise, Phase 1, Ambadi Road, Vasai Road West
                 </span>
               </li>
               <li className="flex items-center gap-2">

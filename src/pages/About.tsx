@@ -1,9 +1,12 @@
 import { Target, Eye, Award, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const About = () => {
+  const navigate = useNavigate();
+
   const values = [
     {
       icon: Target,
@@ -31,7 +34,6 @@ const About = () => {
     },
   ];
 
-  // Hooks for scroll animations (trigger when ~60% visible)
   const { ref: headerRef, hasBeenInView: headerInView } =
     useIntersectionObserver({ threshold: 0.6 });
   const { ref: storyRef, hasBeenInView: storyInView } =
@@ -43,7 +45,7 @@ const About = () => {
 
   return (
     <main className="pt-20">
-      {/* Header Section – from TOP to DOWN */}
+      {/* Header Section */}
       <section ref={headerRef} className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div
@@ -63,11 +65,22 @@ const About = () => {
             <p className="text-xl text-muted-foreground">
               Building excellence since 2018, creating landmarks that define modern living
             </p>
+
+            {/* ISO Clickable Line */}
+            <p className="text-lg mt-3 text-muted-foreground">
+              Ekdant Associates is{" "}
+              <span
+                onClick={() => navigate("/iso-certificate")}
+                className="cursor-pointer text-primary font-semibold hover:underline hover:text-primary/80 transition-all duration-300"
+              >
+                ISO Certified - 9001 : 2015
+              </span>
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Company Story – from LEFT to RIGHT */}
+      {/* Company Story */}
       <section ref={storyRef} className="py-20">
         <div className="container mx-auto px-4">
           <div
@@ -106,7 +119,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Grid – keep fade-up */}
+      {/* Values Grid */}
       <section ref={valuesRef} className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div
@@ -146,7 +159,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Why Choose Us – from RIGHT to LEFT */}
+      {/* Why Choose Us */}
       <section ref={whyChooseUsRef} className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
+import IsoCertificate from "./pages/IsoCertificate";
 import NotFound from "./pages/NotFound";
 
 // --- START: WhatsApp Icon Component (Inline SVG) ---
@@ -54,6 +55,7 @@ const App = () => {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/iso-certificate" element={<IsoCertificate />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
@@ -77,6 +79,7 @@ const App = () => {
     </QueryClientProvider>
   );
 };
+
 
 export default App;
 

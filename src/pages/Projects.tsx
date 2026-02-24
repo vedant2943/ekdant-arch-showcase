@@ -20,6 +20,7 @@ import AmitPalaceImage from "@/assets/Amit Palace.png";
 import NewMuktiImage from "@/assets/New Mukti.jpg";
 import ChandreshVaibhavImage from "@/assets/Chandresh Vaibhav.jpg";
 import ChitraBhavanImage from "@/assets/Chitra Bhavan.jpg";
+import garden from "@/assets/garden.jpg";
 import underConstructionImage from "@/assets/under construction.jpg";
 
 // --------------------------------------
@@ -76,12 +77,12 @@ const ProjectCard = memo(
         `}
         style={{ transitionDelay: `${index * 40}ms` }}
       >
-        <div className="relative h-64 overflow-hidden">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
+        <div className="relative aspect-[4/3] overflow-hidden">
+           <img
+               src={project.image}
+               alt={project.title}
+               className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+  />
           <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
             {project.category}
           </div>
@@ -141,7 +142,7 @@ const ProjectCard = memo(
 // PROJECTS PAGE
 // --------------------------------------
 const Projects = () => {
-  const [filter, setFilter] = useState("Ongoing");
+ const [filter, setFilter] = useState("All");
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const { ref: headerRef, hasBeenInView: headerInView } = useIntersectionObserver({
@@ -356,6 +357,20 @@ status: [
 },
 
 {
+id: 33,
+title: "Garden CHS LTD.",
+location: "Nallasopara (East)",
+category: "Ongoing",
+members: "70",
+image: garden,
+status: [" Developer name Shree sai realtors.", 
+" Full fsi tdr cc received in 2024",
+" On site 12th floor slab in process",
+" Paaa in progress.",
+],
+},
+
+{
 id: 11,
 title: "Sai Palace CHS LTD.",
 location: "Bhaynadar (East)",
@@ -538,19 +553,6 @@ status: [
 // ===== ADDITIONAL NEW PROJECT CARDS =====
 
 {
-id: 33,
-title: "Garden CHS LTD.",
-location: "Nallasopara (East)",
-category: "Ongoing",
-members: "70",
-image: underConstructionImage,
-status: [" Developer name Shree sai realtors.", 
-" Full fsi tdr cc received in 2024",
-" On site 12th floor slab in process",
-" Paaa in progress.",
-],
-},
-{
 id: 34,
 title: "Cosmos Residency CHS LTD.",
 location: "Nallasopara (East)",
@@ -670,10 +672,12 @@ status: [
 
   const projects = allProjectsData;
 
-  const categories = ["Ongoing", "Completed"];
+  const categories = ["All", "Ongoing", "Completed"];
 
   const filteredProjects =
-    projects.filter((p) => p.category === filter);
+  filter === "All"
+    ? projects
+    : projects.filter((p) => p.category === filter);
 
 
   const toggleExpand = (id: number) => {

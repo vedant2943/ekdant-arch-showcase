@@ -97,8 +97,8 @@ const Contact = () => {
       icon: MapPin,
       title: "Address",
       details:
-        "Shop no.3, Gangotri Apartment,\nSanyukta Nagar, Achole Cross Road,\nNallasopara East, 401209",
-      link: "https://maps.app.goo.gl/Z4ifDZADmxprRjqN8",
+        "A1 - 203 Vishwakarma Paradise, Phase 1, Ambadi Road, Vasai Road West",
+      link: "https://maps.app.goo.gl/MYdG9mjTB1Hrrngr6",
     },
     {
       icon: Instagram,
@@ -316,7 +316,7 @@ const Contact = () => {
               </h2>
               <div className="rounded-lg overflow-hidden shadow-lg h-[500px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3762.9697510070587!2d72.817431!3d19.4137129!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a9458e012e1d%3A0xee6bced491b338a9!2sGangotri%20Apartment!5e0!3m2!1sen!2sin!4v1761489657680!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.6634327418224!2d72.82440487498556!3d19.383720681885258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7afadbd488c9b%3A0x246545cb53734879!2sVishwakarma%20Paradise%20(Phase%201)!5e0!3m2!1sen!2sin!4v1771912253858!5m2!1sen!2sin"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
