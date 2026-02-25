@@ -35,13 +35,13 @@ const About = () => {
   ];
 
   const { ref: headerRef, hasBeenInView: headerInView } =
-    useIntersectionObserver({ threshold: 0.6 });
+    useIntersectionObserver({ threshold: 0.2 });
   const { ref: storyRef, hasBeenInView: storyInView } =
-    useIntersectionObserver({ threshold: 0.6 });
+    useIntersectionObserver({ threshold: 0.2 });
   const { ref: valuesRef, hasBeenInView: valuesInView } =
-    useIntersectionObserver({ threshold: 0.6 });
+    useIntersectionObserver({ threshold: 0.2 });
   const { ref: whyChooseUsRef, hasBeenInView: whyChooseUsInView } =
-    useIntersectionObserver({ threshold: 0.6 });
+    useIntersectionObserver({ threshold: 0.2 });
 
   return (
     <main className="pt-20">
