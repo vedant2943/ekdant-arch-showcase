@@ -11,11 +11,13 @@ import 'swiper/css/pagination';
 import heroSlide1 from "@/assets/hero-building 1.jpg";
 import heroSlide2 from "@/assets/hero-building 2.jpg";
 import heroSlide3 from "@/assets/hero-building 3.jpg";
+import heroSlide4 from "@/assets/hero-building 4.jpg";
 
 const slideImages = [
   heroSlide1,
   heroSlide2,
   heroSlide3,
+  heroSlide4,
 ];
 
 const MobileHeroSlider = () => {
