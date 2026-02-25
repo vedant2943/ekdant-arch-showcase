@@ -1,22 +1,37 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="bg-secondary py-12 border-t">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-display font-bold text-primary mb-4">
               Ekdant Associates
             </h3>
+
             <p className="text-muted-foreground text-sm">
               Commit to Care
             </p>
+
+            {/* ✅ ISO Certification Below Commit to Care */}
+            <p className="mt-3 text-sm text-muted-foreground">
+              Ekdant Associates is{" "}
+              <span
+                onClick={() => navigate("/iso-certificate")}
+                className="cursor-pointer text-primary font-semibold hover:underline hover:text-primary/80 transition-all duration-300"
+              >
+                ISO Certified - 9001 : 2015
+              </span>
+            </p>
           </div>
 
-          {/* Taxation Details (replacing Quick Links) */}
+          {/* Taxation Details */}
           <div>
             <h4 className="font-semibold mb-4">Company Taxation Details</h4>
             <table className="w-full text-left text-sm text-muted-foreground">
@@ -29,12 +44,10 @@ const Footer = () => {
               <tbody>
                 <tr>
                   <td>1</td>
-                
                   <td>INCOME TAX – GOVT.OF INDIA</td>
                 </tr>
                 <tr>
                   <td>2</td>
-                
                   <td>GOODS, SERVICES TAX – GOVT.OF INDIA</td>
                 </tr>
               </tbody>
@@ -51,15 +64,23 @@ const Footer = () => {
                   A1 - 203 Vishwakarma Paradise, Phase 1, Ambadi Road, Vasai Road West 401202
                 </span>
               </li>
+
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-primary flex-shrink-0" />
-                <a href="tel:+917709256757" className="text-muted-foreground hover:text-primary transition-colors">
-                  9270245553/ 7709256757
+                <a
+                  href="tel:+917709256757"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  9270245553 / 7709256757
                 </a>
               </li>
+
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-primary flex-shrink-0" />
-                <a href="mailto:ekdant_associates@hotmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="mailto:ekdant_associates@hotmail.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   ekdant_associates@hotmail.com
                 </a>
               </li>
@@ -70,8 +91,12 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Follow Us</h4>
             <div className="flex gap-4">
-              
-              <a href="https://www.instagram.com/ekdant_associates/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a
+                href="https://www.instagram.com/ekdant_associates/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
                 <Instagram size={20} />
               </a>
             </div>
@@ -80,7 +105,9 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Ekdant Associates. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Ekdant Associates. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
